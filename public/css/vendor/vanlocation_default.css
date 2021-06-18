@@ -1,0 +1,146 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@700&display=swap");
+
+:root {
+  --main-color: #202424;
+}
+
+body {
+  background-color: var(--main-color);
+  overflow: scroll;
+  margin: 0;
+  position: relative;
+}
+
+.content-wrapper {
+  width: 100%;
+}
+
+.main-text {
+  position: absolute;
+  font-family: "Alegreya Sans";
+  position: relative;
+  margin-top: 3%;
+  font-size: 7vw;
+  left: 10%;
+  color: white;
+}
+
+.van-number {
+  position: absolute;
+  font-family: "Alegreya Sans";
+  position: relative;
+  margin-top: 1%;
+  font-size: 2vw;
+  left: 10%;
+  font-size: 20px;
+  color: white;
+}
+
+.sub-desc {
+  font-family: "Alegreya Sans";
+  position: absolute;
+  font-size: 4vw;
+  color: white;
+  position: absolute;
+  left: 10%;
+}
+
+.search-container {
+  background: none;
+  position: absolute;
+  left: 10%;
+  height: 100%;
+  width: 80vw;
+  margin-top: 6%;
+  margin-bottom: 8%;
+}
+
+.searchbox {
+  background-color: none;
+  height: 15%;
+  width: 99%;
+  padding: 3px;
+  font-family: "Alegreya Sans SC";
+  font-size: 15px;
+}
+
+.confirm-btn {
+  font-family: "Inter";
+  width: 120px;
+  text-align: center;
+  background-color: #24745c;
+  color: white;
+  border: none;
+  float: right;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 10px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.confirm-btn:hover {
+  background-color: #134033;
+}
+
+.col {
+  display: table;
+  width: 50%;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.map {
+  width: 100%;
+  height: 120%;
+  margin-top: 2%;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}
+
+.submit-btn {
+  border: none;
+  background-color: #24745c;
+  color: white;
+  float: right;
+  padding: 5px;
+  border-radius: 2px;
+  width: 80px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+.submit-btn:hover {
+  background-color: #134033;
+}
+
+section {
+  margin-bottom: 50%;
+}
+
+@media screen and (max-width: 600px) {
+  .main-text {
+    left: 5%;
+  }
+  .sub-desc {
+    left: 5%;
+  }
+  .van-number {
+    left: 5%;
+    font-size: 18px;
+  }
+  .search-container {
+    left: 5%;
+    width: 90vw;
+  }
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Nearest Vans</title>
+    <link rel="stylesheet" href="/css/user/nearestlocation.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/jpg" href="/logo.png" />
+</head>
+
+<body>
+    {{>navbar}}
+    <div id="map"></div>
+    <button class="open-btn" onclick="openSidebar()">></button>
+    <div id="sidebar-van" class="sidebar-van">
+        <button class="x" id="x" onclick="closeSidebar()"> <span>
+                < </span></button>
+        <form action="/nearestvans" method="POST">
+            <div class="topsearch">
+                <input id="pac-input" class="search-bar" type="text" placeholder="Change Your Location"
+                    name="address" />
+                <input name="from" class="from" value={{from}}>
+                <input class="submit-btn" type="submit" value="Search" id="search">
+            </div>
+            <div class="title">
+                <h1> Nearest Vans</h1>
+            </div>
+            <div class="vans">
+                {{#vans}}
+                {{>van}}
+                {{/vans}}
+                <a href="/">
+                    <img src="logo.png" alt="" />
+                </a>
+            </div>
+        </form>
+    </div>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+    <script>
+        var latitude = {{ geocode.latitude }}
+        var longitude = {{ geocode.longitude }}
+        var vans = {{{ vans_stringify }}}
+
+        function initAutocomplete() {
+            const map = new google.maps.Map(document.getElementById("map"), {
+                center: { lat: latitude, lng: longitude },
+                zoom: 16,
+                mapTypeId: "roadmap",
+            });
+            const infoWindow = new google.maps.InfoWindow();
+            for (var index in vans) {
+                const marker = new google.maps.Marker({
+                    position: { lat: Number(vans[index].current_location[0]), lng: Number(vans[index].current_location[1]) },
+                    map,
+                    title: vans[index].van_name + " @ " + vans[index].address,
+                    optimized: false
+                })
+                marker.addListener("click", () => {
+                    infoWindow.close();
+                    infoWindow.setContent(marker.getTitle());
+                    infoWindow.open(marker.getMap(), marker);
+                });
+            }
+
+            const icon = {
+                url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png",
+                size: new google.maps.Size(100, 100),
+                origin: new google.maps.Point(0, 0),
+                anchor: new google.maps.Point(17, 34),
+                scaledSize: new google.maps.Size(45, 45),
+            };
+            // Create the search box and link it to the UI element.
+            const input = document.getElementById("pac-input");
+            const searchBox = new google.maps.places.SearchBox(input);
+            // Bias the SearchBox results towards current map's viewport.
+            map.addListener("bounds_changed", () => {
+                searchBox.setBounds(map.getBounds());
+            });
+        }
+    </script>
+    {{!-- note key is changed  --}}
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=&callback=initAutocomplete&libraries=places&v=weekly"></script>
+
+
+    <script>
+        $(document).ready(function () {
+            openSidebar();
+        });
+        function openSidebar() {
+            document.getElementById("x").style.left = "350px";
+            document.getElementById("sidebar-van").style.width = "350px";
+        }
+        function closeSidebar() {
+            document.getElementById("sidebar-van").style.width = "0";
+            document.getElementById("x").style.left = "-75px";
+        }
+    </script>
+</body>
+
+
+</html>

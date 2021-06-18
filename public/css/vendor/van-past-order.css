@@ -1,0 +1,324 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@400;500;700&display=swap");
+
+:root {
+  --main-color: #202424;
+}
+
+body {
+  background-color: var(--main-color);
+  overflow-y: scroll;
+  margin: 0;
+  position: relative;
+  margin-bottom: 100px;
+}
+
+.content-wrapper {
+  width: 85vw;
+  text-align: center;
+  position: relative;
+  font-weight: bold;
+  justify-content: center;
+  margin-bottom: 10px;
+  margin-left: 8%;
+  margin-top: 20px;
+  padding-right: 4%;
+}
+
+.content-wrapper h1 {
+  font-family: "Alegreya Sans";
+  flex-direction: row;
+  position: relative;
+  font-size: 38px;
+  color: white;
+  padding: 0px;
+  float: left;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.order-container {
+  width: 85vw;
+  margin-left: 8%;
+  margin-top: 7%;
+}
+
+.order {
+  margin-bottom: 10px;
+  background-color: white;
+  font-family: "Alegreya Sans";
+  width: 100%;
+}
+
+.order h1 {
+  float: left;
+}
+
+.order-container td {
+  padding: 5px;
+}
+
+
+.name {
+  width: 25vw;
+  text-align: center;
+  font-family: "Alegreya Sans";
+  font-size: 20px;
+}
+
+.items {
+  width: 20vw;
+  font-size: 20px;
+  font-family: "Alegreya Sans";
+}
+.order-id {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    font-size: 10px;
+    max-width: 30vw;
+    margin-top: 3%;
+    font-weight: 700;
+}
+
+.order-id h2 {
+font-size: 20px;
+font-weight: 700;
+line-height: 20px;
+}
+
+.order-time {
+font-size: 15px;
+}
+
+.order-id h2:hover {
+text-decoration: underline;
+}
+
+.buttons2 {
+  display: inline-block;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  color: var(--main-color);
+  width: 65%;
+  padding: 0px;
+  margin-top: 20px;
+}
+
+a,
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+.ready-btn:hover {
+  background: darkgrey;
+}
+
+
+.pop {
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  visibility: hidden;
+  opacity: 0;
+  z-index: 100;
+}
+
+.pop:target {
+  visibility: visible;
+  opacity: 2;
+}
+
+.popup {
+  margin: 50px auto;
+  top: 18vh;
+  height: 450px;
+  background: white;
+  width: 350px;
+  box-shadow: 5px black;
+  position: relative;
+  display: inline-flexbox;
+  flex-direction: row;
+  vertical-align: middle;
+  align-items: left;
+  transition: all 3s ease-in-out;
+  font-family: "Alegreya Sans";
+  z-index: 100;
+  overflow: scroll;
+}
+
+.popup .info {
+  width: 90%;
+  font-size: 15px;
+  margin-left: 2.5%;
+  margin-bottom: -10px;
+}
+.popup .info h3 {
+  font-size: 20px;
+}
+
+.popup img {
+  width: 100px;
+  max-height: 100px;
+  overflow: hidden;
+}
+
+.popup .closes {
+  position: fixed;
+  margin: 50px auto;
+  margin-left: 310px;
+  top: 20vh;
+  transition: all 100ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--main-color);
+  z-index: 1;
+  cursor: pointer;
+}
+
+.popup .closes:hover {
+  color: grey;
+}
+.popup .items {
+  margin-top: 10px;
+  width: 90%;
+  margin-left: 2.5%;
+  font-size: 15px;
+}
+
+.total-container {
+  margin-left: 5%;
+}
+
+.popup .name {
+  font-size: 15px;
+  width: 150px;
+}
+
+.popup .price {
+  font-size: 15px;
+  margin-left: 20px;
+}
+
+.total p {
+  font-size: 100%;
+  font-family: "Alegreya Sans";
+  color: black;
+  display: flex;
+  margin-bottom: -2%;
+  padding-left: 5px;
+  float: left;
+  width: 100%;
+}
+
+.subtotal {
+  font-size: 100%;
+  font-family: "Alegreya Sans";
+  margin-left: 50%;
+}
+
+.total {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.paidby p {
+  font-size: 100%;
+  font-family: "Alegreya Sans";
+  font-weight: 900;
+  color: black;
+  display: flex;
+  margin-bottom: 2%;
+  padding-left: 5px;
+  float: left;
+  width: 100%;
+}
+
+#total {
+  font-size: 120%;
+  margin-left: 50%;
+}
+
+.paidby {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.totaltax p {
+  font-size: 100%;
+  font-family: "Alegreya Sans";
+  color: black;
+  display: flex;
+  padding-left: 5px;
+  float: left;
+  width: 50%;
+  margin-bottom: -2%;
+}
+
+.totaltax {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+@media screen and (max-width: 700px) {
+  .order-title {
+    margin-left: 1%;
+  }
+  .order-container {
+    width: 90vw;
+    margin-left: 2.5%;
+  }
+  .order {
+    width: 90vw;
+    margin-left: 2.5%;
+  }
+  .items {
+    margin-top: 40%;
+    margin-left: 10%;
+  }
+  .order-id {
+    white-space: wrap;
+    text-overflow: ellipsis;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+  }
+  .order-id h2 {
+    display: flex;
+    flex-wrap: nowrap;
+    font-size: 12px;
+    line-height: 12px;
+  }
+  .order-id h4 {
+    font-size: 10px;
+  }
+  .name {
+    font-size: 12px;
+  }
+  .items {
+    font-size: 12px;
+  }
+  .content-wrapper {
+    width: 90%;
+    margin-left: 4.5%;
+    padding-right: 0%;
+  }
+  .buttons2 {
+    margin-top: 15px;
+    font-size: 10px;
+  }
+}

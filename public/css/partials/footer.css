@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+:root {
+  --main-color: #24745c;
+}
+
+.footercontainer {
+  margin-top: 5%;
+  background-color: var(--main-color);
+  padding-bottom: 3rem;
+  background-color: var(--main-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-content {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  justify-content: center;
+}
+
+.footercol {
+  display: flex;
+  flex-direction: column;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.footercontainer h3 {
+  font-size: 23px;
+  color: white;
+  font-family: "Alegreya Sans";
+  font-weight: 900;
+  align-items: center;
+}
+
+.footercontainer a {
+  font-size: 18px;
+  color: white;
+  font-family: "Alegreya Sans";
+  font-weight: 300;
+  align-items: center;
+  line-height: 2.8;
+}
+
+@media screen and (max-width: 500px) {
+  .footercol {
+    width: 80%;
+    display: inline-flex;
+    align-items: center;
+  }
+}

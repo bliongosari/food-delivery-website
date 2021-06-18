@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INFO30005Project: Vendor Application</title>
+    <link rel="stylesheet" href="/css/vendor/vendor-home.css">
+    <link rel="shortcut icon" type="image/jpg" href="/vendor-logo.png" />
+</head>
+
+<body>
+    <div class="header">
+        <a href="/vendor/">
+            <img class="logo" src="/vendor-logo.png" alt="" />
+        </a>
+        <div class="buttons">
+            <div class="sign-up-btn">
+                <a href="/vendor/sign-up">Sign Up</a>
+            </div>
+            <div class="sign-up-btn">
+                <a href="/contact-us">Contact Us</a>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <section class="content">
+            <div class="content-wrapper">
+                <img src="/vendor-app-background.jpg" alt="" class="image-background">
+                <h1 class="vendor-title">Vendor<br>Application</br></h1>
+                <h4 class="vendor-desc">Manage your business with ease through our<br>vendor application</br></h4>
+            </div>
+        </section>
+    </div>
+    <div class="col">
+        <div class="row">
+            <h2 class="vendor-content"> Sign in with your Van Name</h2>
+            <form action="/vendor/sign-in" method="POST">
+                <div class="sign-in-bar">
+                    <div class="msg">
+                        <h4> {{error}}</h4>
+                        <h4>{{message}}</h4>
+                    </div>
+                    <input type="text" name="van_name" placeholder="Enter your Van Name" required>
+                    <br><input type="password" name="password" placeholder="Enter Password" required></br>
+                    <div class="buttons1">
+                        <input class="log-in-btn" type="submit" value="Continue" id="submit">
+                        <div class="forgot-btn">
+                            <a href="/forgot-password">Forgot Password?</a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

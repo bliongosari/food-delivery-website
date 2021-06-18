@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INFO30005Project: Vendor Profile</title>
+    <link rel="shortcut icon" type="image/jpg" href="/logo.png" />
+    <link rel="stylesheet" href="/css/vendor/van-profile.css">
+    <script src="https://kit.fontawesome.com/bcdf1da655.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    {{>navVendor}}
+    <div class="profile-header">
+        <div class="profile-nav-info">
+            <h3>{{van.firstname}} {{van.lastname}}</h3>
+            <p><i class="fa fa-calendar-o" aria-hidden="true"></i>&nbsp; &nbsp; &nbsp;Account since: {{van.createdOn}}
+            </p>
+        </div>
+    </div>
+
+    <div class="main-bd">
+        {{#if van.img}}
+        <img src="/{{van.img}}" alt="">
+        {{else}}
+        <img src="/no-image-available-icon.jpg" alt="">
+        {{/if}}
+        <div class="van-info">
+            <h2><i class="fa fa-shuttle-van"></i> Van Name: {{van.van_name}} </h2>
+            {{#if van.rating}}
+            <div class="container-rating">
+                <div class="rating" id="here"></div>
+            </div>
+            <a class="rating-btn" href="/vendor/ratings">See Ratings</a>
+            {{else}}
+            <h5> Rating: No reviews yet </h5>
+            {{/if}}
+            <p><i class="fas fa-map-marker-alt"></i>Address: {{van.address}} </p>
+            <p><i class="fa fa-phone"></i>Phone: {{van.phone_number}} </p>
+            <p><i class="fa fa-envelope"></i>{{van.email}}</p>
+            <button class="edit-btn">
+                <a href="/vendor/editprofile"><i class="far fa-edit"></i>&nbsp; &nbsp;Edit Profile </a>
+            </button>
+            <button class="edit-btn">
+                <a href="/vendor/past-orders">View Past Orders</a>
+            </button>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            console.log("document loaded");
+            getRatings();
+        });
+        const rating = {{ van.rating }}
+        const rounded = (rating | 0);
+        var decimal = rating - rounded, $rating = $(".rating");
+        function getRatings() {
+            const star = (rating / 5) * 100;
+            for (var j = 0; j < rounded; j++) {
+                $rating.append('<i class="fa fa-star" style="color: #eb6e00; font-size: 20px;"></i>');
+            }
+            if (decimal) {
+                $rating.append('<i class="fa fa-star-half" style="color: #eb6e00; font-size: 20px;"></i>');
+            }
+            $rating.append('<span>{{van.rating}}</span>')
+        }
+    </script>
+
+
+</body>
+
+
+</html>

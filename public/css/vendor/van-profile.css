@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@700&display=swap");
+
+:root {
+  --main-color: #202424;
+}
+body{
+    background-color: var(--main-color);
+}
+
+.profile-header {
+    background-color: whitesmoke;
+    width: 82%;
+    height: 400%;
+    position: relative;
+    box-shadow: 6px 3px 4px grey;
+    text-align: center;
+    justify-content: center;
+    margin-top: 2%;
+    display: flex;
+    flex-direction: row;
+    margin-left: 10%;
+    font-family: "Alegreya Sans";
+    padding: 5px;
+}
+
+
+.profile-nav-info {
+    justify-content: center;
+
+    text-align: center;
+    margin-bottom: 4%;
+}
+
+.profile-nav-info h3 {
+    font-family: "Alegreya Sans";
+    font-size: 230%;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 0;
+    color: var(--main-color);
+}
+
+.profile-nav-info p {
+    display: flex;
+    font-size: 110%;
+    margin-top: 3%;
+    color: var(--main-color);
+    font-weight: lighter;
+}
+
+
+.main-bd {
+    width: 82%;
+    position: relative;
+    margin-top: 3%;
+    display: flex;
+    flex-direction: row;
+    margin-left: 12%;
+    padding: 10px;
+    font-family: "Alegreya Sans";
+    color: whitesmoke;
+    letter-spacing: 1px;
+}
+
+img {
+    float: left;
+    width: 300px;
+    height: auto;
+}
+
+.van-info {
+    margin-left: 10%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding: 5px;
+}
+
+.edit-btn {
+    background-color: grey;
+    color: var(--main-color);
+    border-radius: 4px;
+    font-family: "Alegreya Sans";
+    margin-bottom: 10px;
+    font-size: 15px;
+    cursor: pointer;
+    width: 50%;
+}
+.container-rating {
+    display: inline-flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  
+  .rating span {
+    margin-left: 10px;
+    font-weight: bolder;
+  }
+  
+
+@media screen and (max-width: 750px) {
+    .main-bd {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin-left: 6%;
+    }
+}

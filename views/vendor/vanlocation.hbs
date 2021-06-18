@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INFO30005Project: Vendor Location</title>
+    <link rel="stylesheet" href="/css/vendor/vanlocation.css">
+    <link rel="shortcut icon" type="image/jpg" href="/logo.png" />
+    <script src="https://kit.fontawesome.com/bcdf1da655.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    {{>navVendor}}
+    <section class="content">
+        <div class="content-wrapper">
+            <div class="van-number">
+                <h3>{{van.van_name}}
+                    <br>Van #{{van.id}}</h3>
+            </div>
+            <div class="sub-desc">Current Location: {{geocode.formattedAddress}}</div>
+
+            <div class="search-container">
+                <form action="/vendor/location" method="POST">
+                    <input id="pac-input" class="searchbox" type="text" placeholder="Change address" name="address">
+                    <input class="submit-btn" type="submit" value="Search" id="search">
+                </form>
+                <div id="map" class="map"></div>
+                <form action="/vendor/changeLocation" method="POST">
+                    <input type="hidden" id="address" name="address" value="{{geocode.formattedAddress}}">
+                    <input class=" confirm-btn" type="submit" value="Confirm" id="search">
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <script>
+        var latitude = {{ geocode.latitude }}
+        var longitude = {{ geocode.longitude }}
+        function initAutocomplete() {
+            // lat and long of Melbourne so search results would be closer to melbourne
+            const map = new google.maps.Map(document.getElementById("map"), {
+                center: { lat: latitude, lng: longitude },
+                zoom: 16,
+                mapTypeId: "roadmap",
+            });
+            const input = document.getElementById("pac-input");
+            const searchBox = new google.maps.places.SearchBox(input);
+            map.addListener("bounds_changed", () => {
+                searchBox.setBounds(map.getBounds());
+            });
+
+            const icon = {
+                size: new google.maps.Size(100, 100),
+                origin: new google.maps.Point(0, 0),
+                anchor: new google.maps.Point(17, 34),
+                scaledSize: new google.maps.Size(45, 45),
+            };
+            let markers = [];
+            markers.push(
+                new google.maps.Marker({
+                    map,
+                    position: { lat: latitude, lng: longitude },
+                    icon,
+                    label: "Your Location",
+                }));
+        }
+    </script>
+
+    {{!-- note key is changed  --}}
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=key&callback=initAutocomplete&libraries=places&v=weekly"></script>
+</body>
+
+</html>

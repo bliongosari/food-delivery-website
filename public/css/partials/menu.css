@@ -1,0 +1,286 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@700&@400&display=swap");
+
+:root {
+  --main-color: #24745c;
+}
+
+.menu-page {
+  display: flex;
+  flex-direction: column;
+  width: 85%;
+  margin: 0 auto;
+  margin-bottom: 3%;
+}
+
+.menu-page h1 {
+  font-family: "Poppins";
+  font-size: 35px;
+  margin-left: 8%;
+}
+
+.menu-item h1 {
+  text-align: left;
+  margin-left: 1%;
+  margin-top: 0%;
+  font-size: 20px;
+}
+
+.menu-item h2 {
+  font-family: sans-serif;
+  text-align: left;
+  margin-left: 1%;
+  margin-top: -3%;
+  font-size: 17px;
+  font-weight: lighter;
+}
+
+.addedfont {
+  font-family: "Poppins";
+  color: black;
+  position: absolute;
+  object-position: absolute;
+  font-size: 30px;
+  justify-content: center;
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 2%;
+  width: auto;
+}
+
+.menu-item {
+  max-width: 400px;
+  max-height: 400px;
+  text-align: center;
+  padding: 10px;
+}
+
+.menu img {
+  position: relative;
+  transition: 1s;
+  max-width: 300px;
+  max-height: 300px;
+  object-fit: cover;
+}
+
+.menu img:hover {
+  filter: grayscale(100%);
+}
+
+.menu a {
+  text-decoration: none;
+  color: black;
+  font-family: "Alegreya Sans";
+}
+
+.pop {
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  visibility: hidden;
+  opacity: 0;
+  z-index: 100;
+}
+
+.pop:target {
+  visibility: visible;
+  opacity: 2;
+}
+
+.popup1 {
+  text-decoration: none;
+  color: black;
+}
+
+.popup1 :hover {
+  background-color: rgb(236, 236, 230);
+  text-decoration: none;
+  color: black;
+}
+
+.popup {
+  margin: 50px auto;
+  top: 18vh;
+  height: 450px;
+  background: white;
+  width: 300px;
+  box-shadow: 5px black;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  vertical-align: middle;
+  align-items: center;
+  transition: all 3s ease-in-out;
+  z-index: 100;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.popup img {
+  width: 100%;
+  height: auto;
+}
+
+.popup .closes {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 100ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--main-color);
+}
+
+.popup .closes:hover {
+  color: grey;
+}
+
+.popup .content {
+  max-height: 80%;
+  flex-direction: column;
+  word-wrap: break-word;
+  overflow: auto;
+  overflow-y: scroll;
+}
+
+.content h3 {
+  margin-bottom: 2px;
+}
+.content h4 {
+  margin-top: 0;
+  margin-left: 10px;
+}
+
+.itemdesc {
+  font-size: 15px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: -10px;
+  font-weight: 400;
+  font-family: "Alegreya Sans";
+}
+
+.itemname {
+  font-size: 24px;
+  margin-top: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-weight: 700;
+  font-family: "Alegreya Sans";
+}
+
+.add-to-cart {
+  height: 22px;
+  width: 100%;
+  display: inline-flex;
+  cursor: pointer;
+  border: none;
+  position: absolute;
+  padding-left: 11px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  top: 90%;
+}
+
+.add-to-cart .add-text {
+  border: none;
+  font-family: "Alegreya Sans";
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+  background-color: black;
+  color: white;
+  width: 90%;
+  cursor: pointer;
+}
+
+.itemprice {
+  font-family: "Sans";
+  font-weight: 100;
+  font-size: 10px;
+  text-align: right;
+  color: white;
+  position: absolute;
+  top: 7%;
+  left: 87%;
+}
+
+.up {
+  background-color: black;
+  border: none;
+  color: white;
+  margin-right: 7px;
+  margin-left: 7px;
+  border-radius: 50%;
+  padding-right: 6px;
+  padding-left: 6px;
+  padding-top: -5px;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.down {
+  background-color: black;
+  border: none;
+  color: white;
+  margin-right: 7px;
+  margin-left: 7px;
+  border-radius: 50%;
+  padding-right: 6px;
+  padding-left: 6px;
+  padding-top: -5px;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+#error {
+  color: red;
+  font-size: 15px;
+}
+
+.quantity {
+  width: 25px;
+  margin: 0;
+  text-align: center;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.add-minus {
+  float: left;
+  width: 40%;
+  height: 100%;
+  margin: 0;
+  background-color: white;
+}
+
+.sbmt {
+  float: right;
+  width: 60%;
+  height: 100%;
+  font-weight: lighter;
+}
+
+.sbmt :hover {
+  background: rgb(38, 38, 36);
+}

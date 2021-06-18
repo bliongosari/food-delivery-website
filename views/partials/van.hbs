@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Nearest Vans</title>
+    <link rel="stylesheet" href="/css/user/nearestlocation.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css"
+        href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="van-item">
+        <a class="popup1" href="#details{{this.id}}">
+            <div class="item-content">
+                <h1>{{this.van_name}}</h1>
+                {{#if this.rating}}
+
+                <div class="container-rating">
+                    <div class="rating" id="here"></div>
+                    <span>{{this.rating}}</span>
+                </div>
+                {{else}}
+                <h5> Rating: No reviews yet </h5>
+                {{/if}}
+                <h5>{{this.phone_number}}</h5>
+                <h4>{{this.address}}</h4>
+                <h6> Distance from you: {{this.distance}} </h6>
+            </div>
+        </a>
+    </div>
+
+    <div id="details{{this.id}}" class="pop">
+        <div class="popup">
+
+            <a class="closes" href="#">&times;</a>
+            <div class="top">
+                <div class="van-img">
+                    {{#if this.image}}
+                    <img src="/{{this.image}}" alt="" width="320px">
+                    {{else}}
+                    <img src="/no-image-available-icon.jpg" alt="" width="200px">
+                    {{/if}}
+                </div>
+                <div class="heading-right">
+                    <h3>{{this.van_name}}</h3>
+                    <a href="/user/rating/{{this.id}}">
+                        <div class="container-rating">
+                            <div class="rating2" id="here2">
+                            </div>
+                            <span>{{rating}}</span>
+                            <h6> See ratings</h6>
+                        </div>
+                    </a>
+                </div>
+                <div class="pick-vans">
+                    <div class="btn1">
+                        <span>Directions</span>
+                    </div>
+                    <div class="btn1">
+                        {{#if @root.fromCheckout}}
+                        <a href="/order/van/{{this.id}}?from=checkout">
+                            <span>Pick Van</span>
+                        </a>
+                        {{else}}
+                        <a href="/order/van/{{this.id}}">
+                            <span>Pick Van</span>
+                        </a>
+                        {{/if}}
+                    </div>
+                </div>
+                <div class="info">
+                    <div class="subinfo">
+                        <img src="/location.png" alt="">
+                        <h9>{{this.address}}</h9>
+                    </div>
+                    <div class="subinfo">
+                        <img src="/email.png" alt="">
+                        <h9>{{this.email}}</h9>
+                    </div>
+                    {{#if this.phone_number}}
+                    <div class="subinfo">
+                        <img src="/phone.png" alt="">
+                        <h9>{{this.phone_number}}</h9>
+                    </div>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            getRatings({{ this.rating }});
+        getRatings2({{ this.rating }});
+        });
+        function getRatings2(rating) {
+            if (!rating) {
+                return;
+            }
+            if (rating == -1) {
+                return;
+            }
+            var rounded = (rating | 0);
+            var decimal = rating - rounded, $rating2 = $(".rating2");
+            var star = (rating / 5) * 100;
+            for (var j = 0; j < rounded; j++) {
+                $rating2.append('<i class="fa fa-star" style="color: #eb6e00; font-size: 20px;"></i>');
+            }
+            if (decimal) {
+                $rating2.append('<i class="fa fa-star-half" style="color: #eb6e00; font-size: 20px;"></i>');
+            }
+            $(".rating2").first().toggleClass('rating2 ratingChanged');
+            $(".rating2").empty();
+        }
+        function getRatings(rating) {
+            if (!rating) {
+                return;
+            }
+            var rounded = (rating | 0);
+            var decimal = rating - rounded, $rating = $(".rating");
+            var star = (rating / 5) * 100;
+            for (var j = 0; j < rounded; j++) {
+                $rating.append('<i class="fa fa-star" style="color: #eb6e00; font-size: 20px;"></i>');
+            }
+            if (decimal) {
+                $rating.append('<i class="fa fa-star-half" style="color: #eb6e00; font-size: 20px;"></i>');
+            }
+            $(".rating").first().toggleClass('rating ratingChanged');
+            $(".rating").empty();
+        }
+    </script>
+</body>

@@ -1,0 +1,188 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+:root {
+  --main-color: #24745c;
+}
+
+body {
+  background-color: #f2f2f2;
+}
+
+.midcontent {
+  position: relative;
+}
+
+.imgcontainer {
+  text-align: center;
+  margin-top: 5%;
+  display: flex;
+  justify-content: center;
+}
+
+.signincontainer {
+  line-height: 22px;
+  text-align: center;
+  color: black;
+  font-family: "Poppins";
+  display: flex;
+  justify-content: center;
+  margin-top: -3%;
+}
+
+.search-text {
+  background: white;
+  border-width: 1px;
+  border-color: lightgray;
+  outline: 0;
+  float: left;
+  font-size: 16px;
+  font-family: "Poppins";
+  height: 40px;
+  line-height: 40px;
+  width: 520px;
+}
+
+.emailbox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  position: relative;
+  margin-top: 0%;
+  height: 50px;
+}
+
+.passwordbox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 1%;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  position: relative;
+  margin-top: 1%;
+}
+
+.continue-btn {
+  display: flex;
+  justify-content: center;
+  height: 45px;
+  width: 150px;
+  line-height: 22px;
+  background-color: var(--main-color);
+  border-radius: 15px;
+  color: white;
+  font-family: "Poppins";
+  text-align: center;
+  margin-right: 1%;
+}
+
+.continue-btn:hover {
+  opacity: 0.9;
+}
+
+.forgotpassword-btn {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  position: relative;
+  height: 45px;
+  width: 200px;
+  line-height: 22px;
+  background-color: var(--main-color);
+  border-radius: 15px;
+  color: white;
+  font-family: "Poppins";
+}
+
+.forgotpassword-btn:hover {
+  opacity: 0.9;
+}
+
+a,
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+.newcust {
+  height: 25px;
+  line-height: 22px;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  text-align: center;
+  color: black;
+  font-family: "Poppins";
+}
+
+.newcust a {
+  font-family: "Poppins";
+  color: green;
+  font-weight: bold;
+}
+
+.personandbowl {
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  position: relative;
+}
+
+.msg {
+  text-align: center;
+  color: red;
+  font-family: "Poppins";
+}
+
+.submit-btn {
+  padding: 0;
+  text-align: center;
+  color: white;
+  font-family: "Poppins";
+  font-size: 16px;
+  border: none;
+  background: none;
+  outline: 0;
+  line-height: 22px;
+}
+
+.msg h4 {
+  font-family: "Poppins";
+  line-height: 22px;
+  justify-content: center;
+}
+
+.back {
+  font-size: 130%;
+  text-align: center;
+  color: var(--main-color);
+  font-family: "Poppins";
+  display: flex;
+  justify-content: center;
+  font-weight: 800px;
+}
+
+.errorpg {
+  height: 60vh;
+  margin: 0 auto;
+  font-size: 100%;
+  font-family: Poppins;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.errorpg a {
+  color: var(--main-color);
+}
+
+.errorpg a:hover {
+  text-decoration: underline;
+}

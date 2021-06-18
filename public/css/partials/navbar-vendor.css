@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+
+:root {
+  --main-color: #202424;
+}
+
+.header {
+  background-color: white;
+  display: flex;
+  height: 12vh;
+  align-items: center;
+  width: 100%;
+}
+
+.logo {
+  width: 150px;
+  margin: 20px;
+  margin-top: 3vh;
+  margin-left: 10vw;
+  padding-right: 30%;
+}
+
+.buttons {
+  display: inline-block;
+  height: 18px;
+  width: 14%;
+  line-height: 22px;
+  background-color: var(--main-color);
+  border-radius: 1px;
+  padding: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+  text-align: center;
+  color: white;
+  font-family: "Inter";
+}
+
+.buttons:hover {
+  opacity: 80%;
+}
+
+a,
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+.van-name h2 {
+  color: black;
+  float: right;
+  font-size: 10px;
+  font-family: "Inter";
+}
+
+@media screen and (max-width: 730px) {
+  .logo {
+    width: 120px;
+    padding-right: 0%;
+    margin-left: 3vw;
+  }
+  .buttons {
+    font-size: 10px;
+    flex-direction: row;
+    padding: 7px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .logo {
+    width: 100px;
+    padding-right: 0%;
+    margin-left: 3vw;
+  }
+  .buttons {
+    font-size: 8px;
+    flex-direction: row;
+    padding: 2px;
+    margin-left: 0px;
+  }
+}

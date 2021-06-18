@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INFO30005Project: Customer Application</title>
+    <link rel="stylesheet" href="/css/user/popup-menu.css">
+</head>
+
+<body>
+    {{>navbar}}
+    <section>
+        <table align="center">
+            <tr class="item-header">
+                <th></th>
+                <th></th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+            </tr>
+            {{#each items}}
+            <tr>
+                <td class="itemimg">
+                    <img src="/{{this.item.image_url}}" alt="" height=" 150px" width="150px">
+                </td>
+                <td class="itemdesc">
+                    <ul style="list-style-type: none;">
+                        <li>
+                            <h1>{{this.item.name}}</h1>
+                        </li>
+                        <li>
+                            <p>{{this.item.description}}</p>
+                        </li>
+                        <li>
+                            <form action="/order/{{../order.id}}/remove/{{this.item._id}}" method="POST">
+                            <input type="submit" class="remove-btn" value="Remove"></form>
+                    </ul>
+                </td>
+                <td>
+                    <p>${{this.item.price}}</p>
+                </td>
+                <td>
+                    <div class = "edit-qty">
+                        <form action="/order/{{../order.id}}/reduce/{{this.item._id}}" method="POST">
+                            <input type="submit" class="qty-button" value="-">
+                        </form>
+                        {{this.qty}}
+                        <form action="/order/{{../order.id}}/add/{{this.item._id}}" method="POST">
+                            <input type="submit" class="qty-button" value="+">
+                        </form>
+                    </div>
+                </td>
+                <td>
+                    <p class="price">${{this.price}}</p>
+                </td>
+            </tr>
+            {{/each}}
+        </table>
+            <h2 class="your-cart">Add Items</h2>
+            <div class="menu">
+                {{#menu}}
+                <a class="popup1" href="#details{{this.id}}">
+                    <div class="menu-item">
+                        <img src="/{{this.image_url}}" alt="" height="200vh" width="250vw">
+                        <h1>{{this.name}}</h1>
+                        <h2>${{this.price}}</h2>
+                    </div>
+                </a>
+                <div id="details{{this.id}}" class="pop">
+                    <div class="popup" id={{this.id}}>
+                        <img src="/{{this.image_url}}" alt="">
+                        <a class="closes" href="#">&times;</a>
+                        <div class="content">
+                            <h3 class="itemname"> {{this.name}} </h3>
+                            <h4>${{this.price}}</h4>
+                            <p class="itemdesc"> {{this.description}} </p>
+                            <form action="/order/{{../order.id}}/add-to-cart/{{this._id}}" method="POST">
+                                <div class="add-to-cart">
+                                    <div class="add-minus">
+                                        <button type="button" class="down">-</button>
+                                        <input readonly="readonly" type="number" class="quantity" name="quantity" value=1>
+                                        <button type="button" class="up">+</button>
+                                    </div>
+                                    <div class="sbmt">
+                                        <button class="add-text">
+                                            <span>Add to Cart </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        </a>
+                    </div>
+                </div>
+                {{/menu}}
+            </div>
+            
+            <div class="finish-btn">
+                <a href="/order/{{order.id}}">Finish</a>
+            </div>
+        </div>
+    </section>
+    {{>footer}}
+</body>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script>
+    $(function () {
+        $('button.up').on('click', function () {
+            var input = $(this).prev('input');
+            var x = parseInt(input.val());
+            input.val(x + 1);
+        });
+
+        $('button.down').on('click', function () {
+            var input = $(this).next('input');
+            var x = parseInt(input.val());
+            if (x > 1) {
+                input.val(x - 1);
+            }
+        });
+    });
+</script>
+
+<script>
+    totalPrice = {{ totalPrice }}
+    function getTotal() {
+        var total = totalPrice * 1.1;
+        document.getElementById("total").innerHTML = "$" + total.toFixed(2);
+    }
+    function getTax() {
+        var tax = totalPrice * 0.1;
+        document.getElementById("tax").innerHTML = "$" + tax.toFixed(2);
+    }
+</script>
+
+
+</html>

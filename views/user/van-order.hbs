@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INFO30005Project: Customer Application</title>
+    <link rel="stylesheet" href="/css/user/van-order.css">
+    <link rel="shortcut icon" type="image/jpg" href="/logo.png" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+    {{>navbar}}
+    <div class="van-details">
+        <div class="van-img">
+            {{#if van.image}}
+            <img src="/{{van.image}}" alt="" width="320px">
+            {{else}}
+            <img src="/no-image-available-icon.jpg" alt="" height="200px" width="250px">
+            {{/if}}
+            <h4> Get directions </h4>
+        </div>
+        <div class="van_info">
+            <h1>{{van.van_name}}</h1>
+            {{#if van.rating}}
+            <div class="container-rating">
+                <a href="/user/rating/{{van.id}}">
+                    <div class="rating" id="here"></div>
+                    <h6> See Ratings</h6>
+                </a>
+            </div>
+            {{else}}
+            <h5> Rating: No reviews yet </h5>
+            {{/if}}
+            <br>
+            <span>{{van.phone_number}}</span>
+            <span>{{van.address}}</span>
+        </div>
+    </div>
+    <div class="decoration"> </div>
+    </div>
+    <div class="menu-page">
+        <h1>Menu</h1>
+        {{>menu}}
+    </div>
+    {{>footer}}
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            getRatings();
+        });
+        const rating = {{ van.rating }}
+        const rounded = (rating | 0);
+        var decimal = rating - rounded, $rating = $(".rating");
+        function getRatings() {
+            const star = (rating / 5) * 100;
+            for (var j = 0; j < rounded; j++) {
+                $rating.append('<i class="fa fa-star" style="color: #eb6e00; font-size: 20px;"></i>');
+            }
+            if (decimal) {
+                $rating.append('<i class="fa fa-star-half" style="color: #eb6e00; font-size: 20px;"></i>');
+            }
+            $rating.append('<span>{{van.rating}}</span>')
+        }
+    </script>
+
+</body>
+
+
+</html>

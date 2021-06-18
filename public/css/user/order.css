@@ -1,0 +1,565 @@
+@import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+
+:root {
+  --main-color: #24745c;
+}
+
+section {
+  margin: 10%;
+}
+
+.progressbar {
+  counter-reset: step;
+  font-family: "Alegreya Sans";
+  font-size: 25px;
+  font-weight: bold;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/alegreyasans/v14/5aUu9_-1phKLFgshYDvh6Vwt5fFPqEd2i0VBuxOCBA.woff2)
+    format("woff2");
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F,
+    U+FE2E-FE2F;
+}
+.progressbar li {
+  list-style-type: none;
+  float: left;
+  width: 33.33%;
+  position: relative;
+  text-align: center;
+  font-size: 80%;
+}
+
+.progressbar li:before {
+  content: counter(step);
+  counter-increment: step;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border: 1px solid#9C9B9B;
+  background-color: #9c9b9b;
+  display: block;
+  text-align: center;
+  margin: 0 auto 10px auto;
+  border-radius: 50%;
+}
+.progressbar li.active {
+  color: black;
+  font-size: 80%;
+}
+.progressbar li:after {
+  content: "";
+  position: absolute;
+  width: 92%;
+  height: 1px;
+  background-color: #9c9b9b;
+  top: 20px;
+  left: -46%;
+  z-index: -0.5;
+}
+
+.progressbar li:first-child:after {
+  content: none;
+}
+
+.progressbar li.active:before {
+  border-color: #24745c;
+  background-color: #24745c;
+  font-family: "Alegreya Sans";
+  font-size: 25px;
+  font-weight: bold;
+  color: white;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/alegreyasans/v14/5aUu9_-1phKLFgshYDvh6Vwt5fFPqEd2i0VBuxOCBA.woff2)
+    format("woff2");
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F,
+    U+FE2E-FE2F;
+}
+.progressbar li.active + li:before {
+  background-color: #9c9b9b;
+  color: white;
+}
+
+.progressbar li:before {
+  background-color: #9c9b9b;
+  color: white;
+}
+
+.receipt {
+  width: 800px;
+  height: 605px;
+  overflow: hidden;
+  background: white;
+  margin: 0 auto;
+  padding: 2%;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid lightgray;
+}
+
+.hr1 {
+  border: 1px solid var(--main-color);
+  position: relative;
+  width: 100%;
+}
+
+.hr2 {
+  border: 1px solid lightgray;
+  margin: 10px 0;
+  position: relative;
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.receipt {
+  width: 80%;
+  height: auto;
+  position: relative;
+}
+
+.receipt h2 {
+  font-size: 40px;
+  font-family: "Alegreya Sans";
+  font-weight: 800;
+  color: black;
+  margin: 35px 0;
+  text-align: center;
+}
+
+#currentTime {
+  font-size: 20px;
+  font-weight: 400;
+  color: black;
+  right: 20px;
+  float: right;
+  width: 50%;
+  text-align: right;
+}
+
+.orderinfo {
+  display: flex;
+  flex-direction: row;
+  font-family: "Alegreya Sans";
+  margin-left: 10px;
+  font-size: 20px;
+}
+
+.orderinfo h3 {
+  width: 50%;
+}
+
+.thankyou h2 {
+  font-weight: 400;
+  font-family: "Alegreya Sans";
+  color: black;
+  display: flex;
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
+.ordered_on {
+  font-weight: 400;
+  font-family: "Alegreya Sans";
+  margin-left: 10px;
+  line-height: 10px;
+}
+
+.itemsordered p {
+  font-size: 120%;
+  font-family: "Alegreya Sans";
+  color: black;
+  display: flex;
+  margin-bottom: 1%;
+  padding-left: 1%;
+  float: left;
+}
+
+.price {
+  font-size: 120%;
+  font-family: "Alegreya Sans";
+}
+
+.name {
+  width: 65%;
+}
+
+.itemsordered {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.qty {
+  font-family: "Alegreya Sans";
+  background-color: var(--main-color);
+  color: white;
+  height: 30px;
+  width: 30px;
+  text-align: center;
+  margin-top: 15px;
+  font-size: 25px;
+  border-radius: 10%;
+  margin-left: 10%;
+}
+
+.total p {
+  font-size: 120%;
+  font-family: "Alegreya Sans";
+  color: black;
+  display: flex;
+  margin-bottom: -0.5%;
+  padding-left: 17%;
+  float: left;
+  width: 100%;
+}
+
+.subtotal {
+  font-size: 120%;
+  font-family: "Alegreya Sans";
+  margin-left: 30%;
+}
+
+.total {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.totaltax p {
+  font-size: 120%;
+  font-family: "Alegreya Sans";
+  color: black;
+  display: flex;
+  padding-left: 17%;
+  float: left;
+  width: 50%;
+}
+
+.totaltax {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+#total {
+  font-size: 140%;
+  margin-left: 20%;
+}
+
+.paidby p {
+  font-size: 120%;
+  font-family: "Alegreya Sans";
+  font-weight: 900;
+  color: black;
+  display: flex;
+  margin-bottom: 2%;
+  padding-left: 17%;
+  float: left;
+  width: 100%;
+}
+
+.paidby {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  position: relative;
+  margin-top: 1%;
+}
+
+.rate-btn {
+  height: 50%;
+  width: 10%;
+  background-color: var(--main-color);
+  border-radius: 4px;
+  padding: 6px;
+  text-align: center;
+  color: white;
+  font-family: "Alegreya Sans";
+  font-size: 15px;
+  margin-top: 15px;
+  margin-left: 76%;
+}
+
+.rate-btn:hover {
+  background: #134033;
+}
+
+.change-order-btn {
+  display: inline-block;
+  height: 70%;
+  width: 22vw;
+  background-color: var(--main-color);
+  border-radius: 4px;
+  padding: 4px;
+  text-align: center;
+  border: none;
+  margin: 0 auto;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.change-order-btn h1 {
+  color: white;
+  font-family: "Alegreya Sans";
+  font-size: 17px;
+  margin: 0 auto;
+  font-weight: lighter;
+  margin-top: 5px;
+}
+
+.change-order-btn:hover {
+  background-color: #134033;
+}
+
+.menu {
+  display: none;
+}
+
+.change-order-btn:active + .menu {
+  display: inline-block;
+}
+
+.inactive-btn {
+  display: inline-block;
+  height: 70%;
+  width: 22vw;
+  background-color: grey;
+  border-radius: 4px;
+  padding: 6px;
+  text-align: center;
+  color: white;
+  font-family: "Alegreya Sans";
+  font-size: 15px;
+  border: none;
+  margin: 0 auto;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.msg {
+  display: none;
+  color: black;
+  font-size: 12px;
+}
+
+.inactive-btn:hover + .msg {
+  display: initial;
+}
+
+.btns1 {
+  display: flex;
+  flex: space-between;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+}
+
+.pop {
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  visibility: hidden;
+  opacity: 0;
+  z-index: 100;
+}
+
+.pop:target {
+  visibility: visible;
+  opacity: 2;
+}
+
+.popup {
+  margin: 50px auto;
+  top: 18vh;
+  height: 320px;
+  background: white;
+  width: 300px;
+  box-shadow: 5px black;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  vertical-align: middle;
+  align-items: center;
+  transition: all 3s ease-in-out;
+  z-index: 100;
+  overflow: hidden;
+}
+
+.popup h3 {
+  font-size: 3vh;
+  font-family: Times;
+  margin-top: 25px;
+}
+
+.popup .closes {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 100ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--main-color);
+}
+
+.popup .closes:hover {
+  color: grey;
+}
+
+.popup .content {
+  max-height: 80%;
+  width: 80%;
+  flex-direction: column;
+  word-wrap: break-word;
+  overflow: auto;
+  align-items: center;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.comment {
+  margin-top: 10px;
+  height: 100px;
+  width: 91%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid darkgrey;
+}
+
+::-webkit-input-placeholder {
+  text-align: center;
+  vertical-align: top;
+}
+
+:-moz-placeholder {
+  /* Firefox 18- */
+  text-align: center;
+  vertical-align: top;
+}
+
+::-moz-placeholder {
+  /* Firefox 19+ */
+  text-align: center;
+  vertical-align: top;
+}
+
+:-ms-input-placeholder {
+  text-align: center;
+  vertical-align: top;
+}
+
+/* modified from https://codepen.io/hesguru/pen/BaybqXv */
+.rate {
+  float: left;
+  height: 46px;
+  padding: 0 10px;
+  margin-left: 32px;
+}
+
+.add-text {
+  background: var(--main-color);
+  width: 100%;
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  margin-top: 5px;
+  font-family: "Cambria";
+  font-size: 15px;
+  color: white;
+}
+
+.add-text:hover {
+  background: #134033;
+}
+
+.rate:not(:checked) > input {
+  position: absolute;
+  top: -9999px;
+}
+.rate:not(:checked) > label {
+  float: right;
+  width: 1em;
+  overflow: hidden;
+  white-space: nowrap;
+  cursor: pointer;
+  font-size: 30px;
+  color: #ccc;
+}
+.rate:not(:checked) > label:before {
+  content: "★ ";
+}
+.rate > input:checked ~ label {
+  color: #eb6e00;
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+  color: #eb6e00;
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+  color: #eb6e00;
+}
+
+@media screen and (max-width: 700px) {
+  .inactive-btn {
+    display: inline-block;
+    height: 90%;
+  }
+  .receipt {
+    width: 90%;
+  }
+  .orderinfo h3 {
+    font-size: 70%;
+    width: 30%;
+  }
+  #currentTime {
+    width: 40%;
+    float: right;
+  }
+  #currentTime p {
+    margin-left: 100%;
+    font-size: 80%;
+
+    text-align: center;
+    justify-content: right;
+    align-items: right;
+  }
+
+  .thankyou h2 {
+    font-size: 30px;
+  }
+  .cancel-btn {
+    width: 40%;
+  }
+  .change-order-btn {
+    width: 40%;
+  }
+  .inactive-btn {
+    width: 40%;
+  }
+  .rate-btn {
+    width: 15%;
+  }
+
+  .subtotal {
+    margin-left: 15%;
+  }
+
+  .itemsordered .price {
+    margin-left: 0%;
+  }
+}

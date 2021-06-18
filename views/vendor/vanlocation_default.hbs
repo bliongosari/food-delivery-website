@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INFO30005Project: Vendor Location</title>
+    <link rel="stylesheet" href="/css/vendor/vanlocation_default.css">
+    <link rel="shortcut icon" type="image/jpg" href="/logo.png" />
+    <script src="https://kit.fontawesome.com/bcdf1da655.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    {{>navVendor}}
+    <section class="content">
+        <div class="content-wrapper">
+            <div class="van-number">
+                <h3>{{van.van_name}}
+                    <br>
+                    Van #{{van.id}}</h3>
+            </div>
+            <div class="main-text">Parked?</div>
+            <div class="sub-desc">Enter your current location.</div>
+
+            <div class="search-container">
+                <form action="/vendor/location" method="POST">
+                    <input id="pac-input" class="searchbox" type="text" placeholder="Enter your current address"
+                        name="address">
+                    <input class="submit-btn" type="submit" value="Search" id="search">
+                </form>
+                <div id="map" class="map"></div>
+            </div>
+
+        </div>
+    </section>
+
+    <script>
+        var latitude = {{ geocode.latitude }}
+        var longitude = {{ geocode.longitude }}
+        function initAutocomplete() {
+            // lat and long of Melbourne so search results would be closer to melbourne
+            const map = new google.maps.Map(document.getElementById("map"), {
+                center: { lat: latitude, lng: longitude },
+                zoom: 16,
+                mapTypeId: "roadmap",
+            });
+            const input = document.getElementById("pac-input");
+            const searchBox = new google.maps.places.SearchBox(input);
+            map.addListener("bounds_changed", () => {
+                searchBox.setBounds(map.getBounds());
+            });
+        }
+    </script>
+    {{!-- note key is changed  --}}
+    <script src="https://maps.googleapis.com/maps/api/js?key=&callback=initAutocomplete&libraries=places&v=weekly">
+    </script>
+</body>
+
+</html>

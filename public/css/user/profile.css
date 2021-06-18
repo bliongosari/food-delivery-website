@@ -1,0 +1,279 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@700&@400&display=swap");
+
+:root {
+  --main-color: #24745c;
+}
+
+.profile-header {
+  background-color: var(--main-color);
+  width: 82%;
+  height: 400%;
+  position: relative;
+  box-shadow: 6px 3px 4px grey;
+  text-align: center;
+  justify-content: center;
+  margin-top: 2%;
+  display: flex;
+  flex-direction: row;
+  margin-left: 10%;
+}
+
+.profile-nav-info {
+  justify-content: center;
+
+  text-align: center;
+  margin-bottom: 4%;
+}
+
+.profile-nav-info h3 {
+  font-family: Poppins;
+  font-size: 230%;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-bottom: 0;
+  color: white;
+}
+
+.profile-nav-info p {
+  display: flex;
+  font-size: 110%;
+  margin-top: 3%;
+  color: white;
+  font-weight: lighter;
+}
+
+.main-bd {
+  width: 100%;
+  display: flex;
+  padding-right: 5%;
+}
+
+.left-side {
+  width: 30%;
+  margin-left: 10%;
+  margin-top: 3%;
+  margin-bottom: 10%;
+}
+
+.profile-side {
+  width: 100%;
+  background: whitesmoke;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+  padding-top: 4%;
+}
+
+.profile-side p {
+  margin-bottom: 12%;
+  color: #333;
+  font-size: 120%;
+  margin-left: 7%;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+.profile-side p i {
+  color: var(--main-color);
+  margin-right: 15%;
+  font-size: 120%;
+}
+
+.edit-btn {
+  justify-content: center;
+  height: 120%;
+  width: 220%;
+  background-color: var(--main-color);
+  border-radius: 5%;
+  color: white;
+  font-family: "Poppins";
+  text-align: center;
+  align-items: center;
+  font-size: 2vh;
+  left: 10%;
+  height: 12%;
+  width: 60%;
+  margin-left: 20%;
+  margin-bottom: 3%;
+}
+
+.edit-btn2 {
+  justify-content: center;
+  height: 120%;
+  width: 220%;
+  background-color: var(--main-color);
+  border-radius: 5%;
+  color: white;
+  font-family: "Poppins";
+  text-align: center;
+  align-items: center;
+  font-size: 2vh;
+  left: 10%;
+  height: 12%;
+  width: 60%;
+  margin-left: 20%;
+  margin-bottom: 10%;
+}
+
+.edit-btn2:hover {
+  background: #134033;
+}
+
+.edit-btn:hover {
+  background: #134033;
+}
+.right-side {
+  display: flex;
+  flex-direction: column;
+  margin-top: 3%;
+  margin-left: 2%;
+  width: 50%;
+  height: 60vh;
+  overflow-y: scroll;
+  overflow-x: scroll;
+}
+
+.past-orders {
+  width: 100%;
+  background: whitesmoke;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+.past-orders h1 {
+  color: black;
+  font-size: 200%;
+  text-align: center;
+  letter-spacing: 2px;
+  font-weight: 700;
+  margin-top: 2%;
+  margin-bottom: 1%;
+}
+
+.past-orders a:hover {
+  text-decoration: underline;
+}
+
+.order-id h2 {
+  color: black;
+  font-size: 120%;
+  text-align: center;
+  letter-spacing: 2px;
+  font-weight: 600;
+  margin-top: 2%;
+  margin-bottom: 1%;
+  justify-content: center;
+  text-transform: uppercase;
+}
+
+.order-id h4 {
+  color: black;
+  font-size: 115%;
+  text-align: left;
+  letter-spacing: 2px;
+  font-weight: 550;
+  margin-top: 0%;
+  margin-left: 2%;
+  margin-bottom: 1%;
+}
+
+.order-id h5 {
+  color: black;
+  font-size: 110%;
+  text-align: left;
+  letter-spacing: 1px;
+  font-weight: 550;
+  margin-top: 0%;
+  margin-left: 10%;
+  margin-bottom: 1%;
+}
+
+.order-id h3 {
+  color: black;
+  font-size: 105%;
+  text-align: left;
+  font-weight: 600;
+  margin-top: 0%;
+  margin-left: 2%;
+  margin-bottom: 1%;
+}
+
+.order-id {
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--main-color);
+  margin: 3%;
+  padding: 2%;
+  padding-top: 1%;
+}
+
+@media screen and (max-width: 800px) {
+  .profile-header {
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .profile-nav-info {
+    justify-content: center;
+    padding-top: 3%;
+    margin-bottom: 4%;
+    margin-top: 1%;
+    text-align: center;
+    margin-left: 2%;
+    font-size: 80%;
+  }
+
+  .profile-nav-info h3 {
+    font-family: Poppins;
+    font-size: 230%;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 0;
+    color: white;
+  }
+
+  .profile-nav-info p {
+    font-size: 90%;
+    margin-top: 3%;
+    color: white;
+    font-weight: lighter;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .main-bd {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-right: 5%;
+  }
+
+  .left-side {
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+  }
+
+  .profile-side {
+    font-size: 80%;
+  }
+  .right-side {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0.5%;
+    margin-left: 10%;
+    width: 80%;
+    margin-bottom: 10%;
+  }
+
+  .past-orders {
+    font-size: 95%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .order-id {
+    font-size: 80%;
+  }
+}

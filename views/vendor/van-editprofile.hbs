@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INFO30005Project: Vendor Edit Profile</title>
+    <link rel="shortcut icon" type="image/jpg" href="/logo.png" />
+    <link rel="stylesheet" href="/css/user/editprofile.css">
+    <script src="https://kit.fontawesome.com/bcdf1da655.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    {{>navVendor}}
+    <div class="profile-header">
+        {{!-- <div class="profile-img">
+            <img src="mangotango.jpg" alt="" class="image-background">
+        </div> --}}
+        <h3>Edit Profile Details</h3>
+    </div>
+
+    <div class="main-bd">
+        <div class="left-side">
+            <form action="/vendor/editprofile" method="POST">
+                <div class="form-group">
+                    <div class="label">
+                        <label for="firstname">Van Name:</label>
+                    </div>
+                    <input pattern="[a-zA-Z ]+"
+                        oninvalid="this.setCustomValidity('Please enter only alphabetical characters')"
+                        oninput=" this.setCustomValidity('')" type="text" class="form-control" name="van_name"
+                        id="van_name" value="{{van.van_name}}" required>
+                </div>
+
+                <div class="form-group">
+                    <div class="label">
+                        <label for="firstname">Email:</label>
+                    </div>
+                    <input type="text" class="form-control" name="email" pattern="(\w\.?)+@[\w\.-]+\.\w+" id="email"
+                        oninvalid="this.setCustomValidity('Please enter a valid email address')"
+                        oninput=" this.setCustomValidity('')" value="{{van.email}}" required>
+                </div>
+
+                <div class="form-group">
+                    <div class="label">
+                        <label for="firstname">Phone Number:</label>
+                    </div>
+                    <input oninvalid="this.setCustomValidity('Please enter digits')"
+                        oninput=" this.setCustomValidity('')" type="text" class="form-control" pattern="\d*"
+                        name="phone_number" id="phone_number" value="{{van.phone_number}}">
+                </div>
+
+                <div class="form-group">
+                    <div class="label">
+                        <label for="firstname">Address:</label>
+                    </div>
+                    <input type="text" class="form-control" pattern="[^;<>]+"
+                        oninvalid="this.setCustomValidity('Characters (;,<,>) not allowed')"
+                        oninput=" this.setCustomValidity('')" name="address" id="address" value="{{van.address}}">
+                </div>
+
+                <div class="save-btn">
+                    <input class="submit-btn" type="submit" value="Save Changes" id="submit">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+
+</html>

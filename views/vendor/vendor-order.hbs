@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INFO30005Project: Vendor Order Page</title>
+    <meta http-equiv="refresh" content="75">
+    <link rel="stylesheet" href="/css/vendor/vendor-order.css">
+    <link rel="shortcut icon" type="image/jpg" href="/logo.png" />
+</head>
+
+<body>
+    {{>navVendor}}
+    {{#if ready}}
+    <div class="status">
+        <a href="/vendor/setUnavailable/{{van._id}}">
+            <h3>Your van is marked as ready. Click to mark as unavailable</h3>
+        </a>
+    </div>
+    {{else}}
+    <div class="status2">
+        <a href="/vendor/ready/{{van._id}}">
+            <h3> Your van is currently set to "Unavailable". Click to set as ready.</h3>
+        </a>
+    </div>
+    {{/if}}
+
+    <table class="content-wrapper">
+        <tr>
+            <td>
+                <h1>Orders</h1>
+            </td>
+            <td>
+                <h2 class="current-loc">Current Location: {{van.address}}</h2>
+            </td>
+        </tr>
+        <tr>
+            <td> <a href="/vendor/past-orders">Past Orders</a></td>
+            <td>
+                <div class="change-btn">
+                    <a href="/vendor/location">Change location?</a>
+                </div>
+            </td>
+    </table>
+
+
+    <div class="order-container">
+        {{#each orders}}
+        {{#if this.items}}
+        <table class="order">
+            <tr>
+                <td colspan="4">
+                    <div class="order-id">
+                        <a href="#details{{this.id}}">
+                            <h2>Order #{{this.id}}</h2>
+                        </a>
+                        <h4 class="order-time">Ordered On: {{this.createdOn}}</h4>
+                    </div>
+                </td>
+            </tr>
+            <div class="order-info">
+                <tr>
+                    <td class=" name" style="width:30%">Name: <br>{{this.customer}}</td>
+                    <td class="items">Order:<br>
+                        {{{getItems ../item_arr @index "order"}}}
+                    </td>
+                    <td class="time">
+                        <p id={{this.id}}header>TIME REMAINING</p>
+                        <p id={{this.id}}></p>
+                    </td>
+                    <td>
+                        <div class="buttons2">
+                            <h4 class="order-status">{{this.status}}</h4>
+                            {{#ifNotReady this.status}}
+                            <div class="ready-btn">
+                                <a href="/order/{{this.id}}/ready">Ready for Pick Up</a>
+                            </div>
+                            {{/ifNotReady}}
+                            {{#ifReady this.status}}
+                            <div class="ready-btn2">
+                                <a href="/order/{{this.id}}/pickup">Picked Up</a>
+                            </div>
+                            {{/ifReady}}
+                        </div>
+                    </td>
+                </tr>
+            </div>
+        </table>
+        {{/if}}
+
+
+        <div id="details{{this.id}}" class="pop">
+            <div class="popup" id={{this.id}}>
+                <div class="info">
+                    <h3>Order #{{this.id}}</h3>
+                    <h4>Ordered On: {{this.createdOn}}</h4>
+                    <h4>Status: {{this.status}}</h4>
+                    <h4>Ordered By: {{this.customer}}</h4>
+                </div>
+                <div class="items">Orders: <br>
+                    <table class="item">
+                        {{{getItems ../item_arr @index "popup"}}}
+                    </table>
+                </div>
+
+                <div class="total-container">
+                    <div class="total">
+                        <p style="font-weight:bold">Subtotal</p>
+                        <p class="subtotal">${{this.items.[0].totalPrice}}</p>
+                    </div>
+
+                    <div class="totaltax">
+                        <p>Tax</p>
+                        <p id="tax" class="subtotal">${{getTotal this.items.[0].totalPrice "tax"}}</p>
+                    </div>
+                    <div class="paidby">
+                        <p>Paid:</p>
+                        <p id="total">${{getTotal this.items.[0].totalPrice "total"}}</p>
+                    </div>
+                </div>
+                <a class="status-btn" href="/order/{{this.id}}/pickup">Picked Up</a>
+                <a class="status-btn" href="/vendor/{{this.id}}/cancel">Cancel Order</a>
+                <a class="closes" href="#">&times;</a>
+                </a>
+            </div>
+        </div>
+
+        {{/each}}
+
+    </div>
+
+    <script type="text/javascript">
+        var orders = {{{ time_arr }}}
+        // Set the date we're counting down to
+        var dates = []
+        for (i = 0; i < orders.length; i++) {
+            dates.push(new Date(orders[i].time).getTime())
+        }
+        var x = setInterval(function () {
+            var now = new Date().getTime();
+            for (i = 0; i < orders.length; i++) {
+                var countdown = dates[i] - now;
+                var minutes = Math.floor((countdown % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((countdown % (1000 * 60)) / 1000);
+                document.getElementById(orders[i].id).innerHTML = minutes + "m " + seconds + "s ";
+                if (countdown < 0 && orders[i].status == "In Progress") {
+                    document.getElementById(orders[i].id).innerHTML = "DISCOUNTED";
+                    document.getElementById(orders[i].id + "header").innerHTML = "";
+                }
+                else if (orders[i].status == "Ready") {
+                    document.getElementById(orders[i].id).innerHTML = "WAITING FOR PICKUP";
+                    document.getElementById(orders[i].id + "header").innerHTML = "";
+                }
+            }
+        }, 1000);
+    </script>
+    </section>
+    </script>
+    </section>
+    </div>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/vendor/vendor-sign-up.css">
+    <title>INFO30005Project: Vendor Sign Up</title>
+    <link rel="shortcut icon" type="image/jpg" href="/logo.png" />
+</head>
+
+<body>
+    <div class="midcontent">
+        <div class="back">
+            <a href="/vendor">Back to Home Page</a>
+        </div>
+        <div class="imgcontainer">
+            <a href="/vendor">
+                <img src="/logo.png" alt=" logo" width="200" height="200">
+                <h4 class="logo-text">FOR VENDORS</h4>
+            </a>
+        </div>
+        <div class="signincontainer">
+            <h2>Create Account</h2>
+        </div>
+        <div class="msg">
+            <h4> {{error}}</h4>
+            <h4>{{message}}</h4>
+        </div>
+
+        <form action="/vendor/sign-up" method="POST">
+            <div class="emailbox">
+                <input type="email" name="email" pattern="(\w\.?)+@[\w\.-]+\.\w+" placeholder="Enter Your Email Address"
+                    class="search-text">
+            </div>
+            <div class="namecontainer">
+                <div class="firstnamebox">
+                    <input type="van_name" name="van_name" pattern="[a-zA-Z ]+"
+                        oninvalid="this.setCustomValidity('Please enter only alphabetical characters')"
+                        oninput=" this.setCustomValidity('')" placeholder="Van Name" class="search-text">
+                </div>
+            </div>
+
+            <div class="passwordbox">
+                <input type="password" name="password" placeholder="Enter Your Password"
+                    pattern="(?=.*\d)(?=.*[a-zA-Z]).{8,}" class="search-text"
+                    oninvalid="this.setCustomValidity('Must contain atleast one alphabet character, one numerical digit (0-9), and at least 8 characters')"
+                    oninput="this.setCustomValidity('')">
+            </div>
+
+            <div class="buttons">
+                <div class="create-btn">
+                    <input class="submit-btn" type="submit" value="Create Account" id="submit">
+                </div>
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>

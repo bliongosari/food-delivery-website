@@ -1,0 +1,375 @@
+@import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@400;500;800&display=swap");
+
+:root {
+  --main-color: #202424;
+}
+
+body {
+  background-color: var(--main-color);
+  overflow-y: scroll;
+  margin: 0;
+  position: relative;
+}
+
+.header {
+  background-color: white;
+  display: flex;
+  height: 11vh;
+  align-items: center;
+  width: 100vw;
+}
+
+.logo {
+  width: 40%;
+  min-width: 120px;
+  margin: 20px;
+  margin-top: 3vh;
+  margin-left: 13vw;
+  margin-right: 0;
+}
+
+.logo-text {
+  font-size: 10px;
+  color: black;
+  position: absolute;
+  left: 17%;
+  top: 6%;
+  font-family: sans-serif;
+}
+
+.buttons {
+  display: inline-flex;
+  right: 0;
+  width: 50%;
+  margin-left: 30%;
+}
+
+.buttons1 {
+  display: flex;
+  right: 0;
+}
+
+.sign-up-btn {
+  height: 22px;
+  display: inline-block;
+  width: 30%;
+  background-color: var(--main-color);
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 15px;
+  text-align: center;
+  color: white;
+  margin-left: 20px;
+  font-family: "Arial";
+}
+
+.contact-us-btn {
+  display: inline-block;
+  height: 22px;
+  line-height: 22px;
+  background-color: var(--main-color);
+  border-radius: 4px;
+  padding: 10px;
+  margin-top: -2.5vh;
+  text-align: center;
+  position: absolute;
+  left: 80%;
+  color: white;
+  font-family: "Arial";
+}
+
+.sign-up-btn:hover {
+  background: #134033;
+}
+
+.contact-us-btn:hover {
+  background: #134033;
+}
+
+a,
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+.login-btn:hover {
+  background: #134033;
+}
+
+.partner-up-btn:hover {
+  background: #134033;
+}
+
+.content-wrapper {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.content-wrapper .image-background {
+  height: 90vh;
+  width: auto;
+  float: left;
+  overflow: hidden;
+  opacity: 60%;
+  filter: contrast(120%);
+}
+
+.content-wrapper .vendor-title {
+  font-family: "Alegreya Sans";
+  text-align: left;
+  font-size: 500%;
+  position: absolute;
+  left: 5%;
+  color: white;
+  font-weight: 800;
+}
+
+.content-wrapper .vendor-desc {
+  font-family: "Alegreya Sans";
+  font-size: 150%;
+  position: absolute;
+  margin-top: 43%;
+  left: 5%;
+  color: white;
+  font-weight: lighter;
+}
+
+.vendor-content {
+  font-family: sans-serif;
+  color: white;
+  position: absolute;
+  top: 280px;
+  left: 65%;
+}
+
+.sign-in-bar {
+  position: absolute;
+  top: 335px;
+  left: 62%;
+}
+
+input[type="text"] {
+  width: 27vw;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+input[type="password"] {
+  width: 27vw;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.log-in-btn {
+  font-family: sans-serif;
+  width: 150%;
+  text-align: center;
+  font-size: 16px;
+  background-color: #24745c;
+  position: inherit;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.log-in-btn:hover {
+  background-color: #134033;
+}
+
+.forgot-btn {
+  font-family: sans-serif;
+  font-size: 16px;
+  text-align: center;
+  width: 150%;
+  background-color: #24745c;
+  position: inherit;
+  margin-left: 5px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.forgot-btn:hover {
+  background-color: #134033;
+}
+
+.col {
+  display: table;
+  width: 50%;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.msg {
+  text-align: center;
+  color: red;
+  margin: 0;
+  font-family: "Arial";
+}
+
+@media screen and (max-width: 1200px) {
+  .header {
+    width: 100%;
+  }
+
+  .logo-text {
+    font-size: 10px;
+    color: black;
+    position: absolute;
+    left: 26%;
+    top: 6%;
+    font-family: sans-serif;
+  }
+
+  .content-wrapper {
+    position: relative;
+  }
+
+  .content-wrapper .image-background {
+    height: auto;
+    width: 200%;
+    opacity: 60%;
+    filter: contrast(120%);
+  }
+
+  .content-wrapper .vendor-title {
+    font-family: "Alegreya Sans";
+    text-align: left;
+    font-size: 400%;
+    position: absolute;
+    margin-top: 50%;
+    left: 15%;
+    color: white;
+    font-weight: 800;
+    line-height: 90%;
+  }
+
+  .content-wrapper .vendor-desc {
+    font-family: "Alegreya Sans";
+    font-size: 150%;
+    margin-top: 80%;
+    left: 15%;
+    color: white;
+    font-weight: lighter;
+  }
+  .sign-up-btn {
+    font-size: 12px;
+  }
+
+  .vendor-content {
+    font-family: sans-serif;
+    color: white;
+    text-align: center;
+    margin-top: 95%;
+    display: flex;
+    justify-content: center;
+    left: 37%;
+  }
+
+  .sign-in-bar {
+    margin-top: 95%;
+    width: 50%;
+    left: 15%;
+  }
+
+  input[type="text"] {
+    width: 150%;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  input[type="password"] {
+    width: 150%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  .log-in-btn {
+    font-family: sans-serif;
+    text-align: center;
+    font-size: 100%;
+    background-color: #24745c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin-left: 40%;
+    margin-bottom: 20%;
+  }
+
+  .log-in-btn:hover {
+    background-color: #134033;
+  }
+
+  .forgot-btn {
+    font-family: sans-serif;
+    font-size: 100%;
+    text-align: center;
+    background-color: #24745c;
+    margin-left: 5px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    margin-bottom: 20%;
+  }
+
+  .forgot-btn:hover {
+    background-color: #134033;
+  }
+
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .msg {
+    text-align: center;
+    color: red;
+    margin: 0;
+    font-family: "Alegreya Sans";
+    font-weight: 400;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .content-wrapper {
+    font-size: 50%;
+  }
+
+  .vendor-desc {
+    top: 0;
+  }
+
+  .vendor-title {
+    margin-bottom: 0;
+  }
+  .vendor-content {
+    left: 10%;
+    margin-right: 5%;
+    margin-top: 85%;
+  }
+  .sign-in-bar {
+    margin-top: 87%;
+    left: 12%;
+  }
+  .buttons {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+}

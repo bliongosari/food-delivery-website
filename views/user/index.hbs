@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INFO30005Project: Customer Application</title>
+    <link rel="shortcut icon" type="image/jpg" href="/logo.png" />
+    <link rel="stylesheet" href="/css/user/home.css">
+</head>
+
+<body>
+    {{>navbar}}
+    <section class="content">
+        <div class="content-wrapper">
+            <div class="readyfont"> Ready to Eat? <br> Find a nearby van <br> now </div>
+            <form action="/nearestvans" method="POST">
+                <div class="searchbox">
+                    <input id="pac-input" class="controls" type="text" placeholder="Enter your current location"
+                        name="address" />
+                    <div id="map"></div>
+                    <input class="submit-btn" type="submit" value="Search" id="search">
+                </div>
+            </form>
+            <img src="home-page-background.png" alt="" class="image-background">
+        </div>
+    </section>
+
+    <section class="menu-page">
+        <h1> Newly Added </h1>
+        {{>menu}}
+    </section>
+    {{>footer}}
+    <script>
+        function initAutocomplete() {
+            // lat and long of Melbourne so search results would be closer to melbourne
+            const map = new google.maps.Map(document.getElementById("map"), {
+                center: { lat: -37.8136, lng: 144.9631 },
+                zoom: 20,
+                mapTypeId: "roadmap",
+            });
+            const input = document.getElementById("pac-input");
+            const searchBox = new google.maps.places.SearchBox(input);
+            map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+            map.addListener("bounds_changed", () => {
+                searchBox.setBounds(map.getBounds());
+            });
+        }
+    </script>
+
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApJ39C64alrC75WEVa9vaH3XHv8CC2FAg&callback=initAutocomplete&libraries=places&v=weekly"></script>
+</body>
+
+
+</html>

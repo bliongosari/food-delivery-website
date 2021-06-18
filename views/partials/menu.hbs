@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INFO30005Project: Customer Application</title>
+    <link rel="stylesheet" href="/css/partials/menu.css">
+</head>
+
+<body>
+    <div class="menu">
+        {{#menu}}
+        <a class="popup1" href="#details{{this.id}}">
+            <div class="menu-item">
+                <img src="/{{this.image_url}}" alt="" height="200vh" width="250vw">
+                <h1>{{this.name}}</h1>
+                <h2>${{this.price}}</h2>
+            </div>
+        </a>
+        <div id="details{{this.id}}" class="pop">
+            <div class="popup" id={{this.id}}>
+                <img src="/{{this.image_url}}" alt="">
+                <a class="closes" href="#">&times;</a>
+                <div class="content">
+                    <h3 class="itemname"> {{this.name}} </h3>
+                    <h4>${{this.price}}</h4>
+                    <p class="itemdesc"> {{this.description}} </p>
+                    <form action="/cart/add-to-cart/{{this._id}}" method="POST">
+                        <div class="add-to-cart">
+                            <div class="add-minus">
+                                <button type="button" class="down">-</button>
+                                <input readonly="readonly" type="number" class="quantity" name="quantity" value=1>
+                                <button type="button" class="up">+</button>
+                            </div>
+                            <div class="sbmt">
+                                <button class="add-text">
+                                    <span>Add to Cart </span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                </a>
+            </div>
+        </div>
+        {{/menu}}
+    </div>
+</body>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script>
+    $(function () {
+        $('button.up').on('click', function () {
+            var input = $(this).prev('input');
+            var x = parseInt(input.val());
+            input.val(x + 1);
+        });
+
+        $('button.down').on('click', function () {
+            var input = $(this).next('input');
+            var x = parseInt(input.val());
+            if (x > 1) {
+                input.val(x - 1);
+            }
+        });
+    });
+</script>
+
+<script>
+    totalPrice = {{ totalPrice }}
+    function getTotal() {
+        var total = totalPrice * 1.1;
+        document.getElementById("total").innerHTML = "$" + total.toFixed(2);
+    }
+    function getTax() {
+        var tax = totalPrice * 0.1;
+        document.getElementById("tax").innerHTML = "$" + tax.toFixed(2);
+    }
+</script>
+
+
+</html>

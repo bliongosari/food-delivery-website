@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INFO30005Project: Customer Application</title>
+    <link rel="stylesheet" href="/css/user/checkout.css">
+    <link rel="shortcut icon" type="image/jpg" href="/logo.png" />
+    <script src="https://kit.fontawesome.com/bcdf1da655.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    {{> navbar}}
+    <section class="content">
+        <div class="upperbody-1">
+            <ul class="progressbar">
+                <li class="active">Review</li>
+                <li>Pay</li>
+                <li>Complete</li>
+            </ul>
+        </div>
+
+        <div class="pickup-container">
+            <h1> Van Chosen </h1>
+            <div class="van-details">
+                {{#if van }}
+                {{#if van.image}}
+                <div class="image-van"><img src="/{{van.image}}" alt="" style="width:200px;"></div>
+                {{else}}
+                <div class="image-van"><img src="/no-image-available-icon.jpg" alt="" style="width:180px;"></div>
+                {{/if}}
+                <ul style="list-style-type: none;" class="location">
+                    <li>
+                        <h1> {{van.van_name}}</h1>
+                    </li>
+                    <li>
+                        <h2>Location: {{van.address}}</h2>
+                    </li>
+                    <li>
+                        <h2>Call: {{van.phone_number}}</h2>
+                    </li>
+                    <li>
+                        <div class="direction-btn">
+                            <a href="/nearestvans?from=checkout" role="button">Change Van</a>
+                        </div>
+                    </li>
+
+                </ul>
+
+
+                {{else}}
+                <ul style="list-style-type: none;" class="location">
+                    <a href="/nearestvans?from=checkout">
+                        <h1> No Van Chosen. Please Pick a van</h1>
+                    </a>
+                    <a href="/nearestvans?from=checkout" style="text-decoration: underline">
+                        Search for nearby vans
+                    </a>
+                </ul>
+
+                {{/if}}
+            </div>
+        </div>
+
+        <h1> Order Summary </h1>
+        <div class="ordersummary-container">
+            <table>
+                {{#each items}}
+                <tr class="itemsordered">
+                    <td>
+                        <p>{{this.item.name}} x {{this.qty}}</p>
+                    </td>
+                    <td>
+                        <p class="itemprice">${{this.item.price}}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="/{{this.item.image_url}}" alt="" class="image-order">
+                    </td>
+                    <td>
+                        <div class="edit-btn">
+                            <a href="/cart">Edit Cart</a>
+                        </div>
+                    </td>
+                </tr>
+                {{/each}}
+                <tr>
+                    <td>
+                        <p class="subtotal">Subtotal</p>
+                    </td>
+                    <td>
+                        <p class="itemprice">${{totalPrice}}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="subtotal">
+                        <p>Tax</p>
+                    </td>
+                    <td>
+                        <div id="tax" class="itemprice">${{getTotal totalPrice "tax"}}</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="subtotal">
+                        <p>Total</p>
+                    </td>
+                    <td>
+                        <div id="total" class="itemprice">${{getTotal totalPrice "tax"}}</div>
+                    </td>
+                </tr>
+            </table>
+
+            <div class="couponcode">
+                <h1>Have a Coupon Code?</h1>
+                <input type="code" name="code" placeholder="Enter coupon code" class="search-text">
+                <div class="apply-btn">
+                    <a href="/user/rate">APPLY</a>
+                </div>
+            </div>
+        </div>
+
+        {{#if van}}
+        <a href="/payment" class="next-btn" role="button">NEXT</a>
+        {{else}}
+        <div class="msg">
+            <a onclick="displayError()" class="next-btn" role="button">NEXT</a>
+            <div id="error"></div>
+        </div>
+        {{/if}}
+    </section>
+    {{> footer}}
+
+    <script>
+        function displayError() {
+            document.getElementById("error").innerHTML = "<a href ='/nearestvans?from=checkout'> Pick a van to continue</a>";
+        }
+    </script>
+
+</body>
+
+</html>

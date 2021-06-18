@@ -1,0 +1,145 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+:root {
+  --main-color: #24745c;
+}
+
+body {
+  background-color: #f2f2f2;
+}
+
+.midcontent {
+  position: relative;
+}
+
+.logo-text {
+  font-size: 10px;
+  color: black;
+  position: absolute;
+  margin-top: -9.5vh;
+  margin-left: 50vw;
+  font-family: sans-serif;
+}
+
+.imgcontainer {
+  text-align: center;
+  margin-top: 60px;
+}
+
+.msg {
+  text-align: center;
+  color: red;
+  margin: 0;
+  font-family: "Poppins";
+}
+
+.signincontainer {
+  margin-top: -5%;
+  justify-content: center;
+  text-align: center;
+  color: black;
+  font-family: "Poppins";
+}
+
+.search-text {
+  background: white;
+  border-width: 1px;
+  border-color: lightgray;
+  outline: 0;
+  float: left;
+  font-size: 16px;
+  font-family: "Poppins";
+  height: 40px;
+  line-height: 40px;
+  width: 520px;
+}
+
+.emailbox {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+  margin-top: 0.5%;
+}
+
+.passwordbox {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  position: relative;
+  justify-content: center;
+  height: 50px;
+  margin-top: 0.5%;
+}
+
+.namecontainer {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.firstnamebox {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  position: relative;
+  margin-top: 0.5%;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+}
+
+.create-btn {
+  height: 25px;
+  width: 500px;
+  background-color: var(--main-color);
+  border-radius: 15px;
+  margin: auto;
+  padding: 10px;
+  margin-top: 5px;
+}
+
+.create-btn:hover {
+  opacity: 0.9;
+}
+
+a,
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+.submit-btn {
+  padding: 0;
+  text-align: center;
+  color: white;
+  font-family: "Poppins";
+  font-size: 15px;
+  border: none;
+  background: none;
+  outline: 0;
+}
+
+.back {
+  font-size: 130%;
+  text-align: center;
+  color: var(--main-color);
+  font-family: "Poppins";
+  display: flex;
+  justify-content: center;
+  font-weight: 800px;
+}
+
+@media screen and (max-width: 500px) {
+  .firstnamebox {
+    width: 100%;
+  }
+}

@@ -1,0 +1,221 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@700&@400&display=swap");
+
+:root {
+  --main-color: #202424;
+}
+
+body {
+  background-color: var(--main-color);
+  overflow-y: scroll;
+  margin: 0;
+  position: relative;
+}
+
+.info {
+  display: inline-block;
+  height: 20%;
+  border-bottom: 4px solid black;
+  width: 100%;
+  font-family: "Alegreya Sans";
+  margin-top: 20px;
+  padding-bottom: 20px;
+  justify-content: center;
+}
+.info img {
+  margin-top: 2%;
+  margin-left: 5%;
+  width: 200px;
+  float: left;
+}
+
+.van-info {
+  display: inline-block;
+  color: white;
+  font-size: 15px;
+  margin-top: 50px;
+  line-height: 10px;
+  margin-left: 20px;
+}
+
+.menu-page {
+  display: flex;
+  flex-direction: column;
+  width: 85%;
+  margin: 0 auto;
+  margin-bottom: 3%;
+}
+
+.menu-page h1 {
+  font-family: "Poppins";
+  font-size: 35px;
+  margin-left: 8%;
+}
+
+.menu-item h1 {
+  text-align: left;
+  margin-left: 1%;
+  margin-top: 0%;
+  font-size: 20px;
+}
+
+.menu-item h2 {
+  font-family: sans-serif;
+  text-align: left;
+  margin-left: 1%;
+  margin-top: -3%;
+  font-size: 17px;
+  font-weight: lighter;
+}
+
+.addedfont {
+  font-family: "Poppins";
+  color: white;
+  position: absolute;
+  object-position: absolute;
+  font-size: 30px;
+  justify-content: center;
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+  background-color: var(--main-color);
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 2%;
+  width: 80vw;
+  margin-left: 10%;
+  align-self: center;
+}
+
+.menu-item {
+  max-width: 400px;
+  max-height: 400px;
+  text-align: center;
+  padding: 10px;
+  color: white;
+  font-family: "Alegreya Sans";
+}
+
+.menu img {
+  position: relative;
+  transition: 1s;
+  max-width: 150px;
+  max-height: 150px;
+  object-fit: cover;
+}
+
+.menu img:hover {
+  filter: grayscale(100%);
+}
+
+.pop {
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  visibility: hidden;
+  opacity: 0;
+  z-index: 100;
+}
+
+.pop:target {
+  visibility: visible;
+  opacity: 2;
+}
+
+.popup1 {
+  text-decoration: none;
+  color: black;
+}
+
+.popup1 :hover {
+  background-color: rgb(236, 236, 230);
+  text-decoration: none;
+  color: black;
+}
+
+.popup {
+  margin: 50px auto;
+  top: 18vh;
+  height: 300px;
+  background: white;
+  width: 300px;
+  box-shadow: 5px black;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  vertical-align: middle;
+  align-items: center;
+  transition: all 3s ease-in-out;
+  z-index: 100;
+  overflow: hidden;
+}
+
+.popup img {
+  max-width: 120%;
+  width: 100%;
+  height: auto;
+}
+
+.popup .closes {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 100ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--main-color);
+}
+
+.popup .closes:hover {
+  color: grey;
+}
+
+.popup .content {
+  flex-direction: column;
+  word-wrap: break-word;
+  overflow: auto;
+}
+
+.itemdesc {
+  font-size: 15px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: -10px;
+  font-weight: 400;
+  font-family: "Alegreya Sans";
+}
+
+.itemname {
+  font-size: 24px;
+  margin-top: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-weight: 700;
+  font-family: "Alegreya Sans";
+}
+
+@media screen and (max-width: 750px) {
+  .info img {
+    width: 50%;
+    margin-left: 25%;
+  }
+  .van-info {
+    margin-top: 20px;
+  }
+  .info {
+    align-items: center;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .van-info h1 {
+    font-size: 130%;
+  }
+}

@@ -1,0 +1,89 @@
+:root {
+  --main-color: #24745c;
+}
+
+.body {
+  width: 100%;
+}
+.menu-page {
+  display: flex;
+  flex-direction: column;
+  width: 85%;
+  margin: 0 auto;
+  margin-bottom: 3%;
+}
+
+.van-details {
+  height: 30%;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 5vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.van-img {
+  flex-direction: column;
+  text-align: center;
+  flex: 1;
+  justify-content: center;
+  color: var(--main-color);
+  font-weight: 800;
+  font-size: 20px;
+}
+
+.van_info {
+  flex-direction: column;
+  flex: 2;
+  margin: 5vw;
+  margin-top: 3vh;
+  display: flex;
+  word-wrap: break-word;
+}
+
+.van_info h1 {
+  margin-top: 0;
+  font-size: 40px;
+  font-family: "Poppins";
+  white-space: nowrap;
+}
+
+.van_info span {
+  font-size: 18px;
+  font-family: "Times";
+  font-weight: lighter;
+  word-wrap: break-word;
+}
+
+.decoration {
+  width: 80%;
+  margin: 0 auto;
+  height: 1vh;
+  background-color: black;
+}
+
+.van_info h1 {
+  line-height: 8px;
+}
+
+.container-rating {
+  display: inline-flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.rating span {
+  margin-left: 10px;
+  font-weight: bolder;
+}
+
+.container-rating h6 {
+  font-size: 13px;
+  font-weight: lighter;
+  font-family: serif;
+  margin: 0;
+}
+.container-rating h6:hover {
+  text-decoration: underline;
+}

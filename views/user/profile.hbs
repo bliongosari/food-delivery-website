@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INFO30005Project: Customer Application</title>
+    <link rel="shortcut icon" type="image/jpg" href="/logo.png" />
+    <link rel="stylesheet" href="/css/user/profile.css">
+    <script src="https://kit.fontawesome.com/bcdf1da655.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    {{>navbar}}
+    <div class="profile-header">
+        <div class="profile-nav-info">
+            <h3>{{user.firstname}} {{user.lastname}}</h3>
+            <p><i class="fa fa-calendar-o" aria-hidden="true"></i>&nbsp; &nbsp; &nbsp;Account since: {{user.createdOn}}
+            </p>
+        </div>
+    </div>
+
+    <div class="main-bd">
+        <div class="left-side">
+            <div class="profile-side">
+                <p><i class="fa fa-phone"></i>Phone: {{user.phone}} </p>
+                <p><i class="fa fa-envelope"></i>{{user.email}}</p>
+                <p><i class="fas fa-map-marker-alt"></i>Address: {{user.address}} </p>
+                <button class="edit-btn">
+                    <a href="{{user._id}}/editprofile"><i class="far fa-edit"></i>&nbsp; &nbsp;Edit Profile </a>
+
+                </button>
+                <button class="edit-btn2">
+                    <a href="/user/changepassword"><i class="far fa-edit"></i>&nbsp; &nbsp;Change Password </a>
+                </button>
+            </div>
+        </div>
+
+        <div class="right-side">
+            <div class="past-orders">
+
+                <h1>Past Orders</h1>
+                {{#if pastOrders}}
+                {{#each orders}}
+                {{#if this.items}}
+                <div class="order-id">
+                    <a href="/order/{{this._id}}">
+                        <h2>ORDER #{{this._id}}</h2>
+                    </a>
+                    <h3>{{this.createdOn}}</h3>
+                    <h4>Van Name:&nbsp; {{this.van_name}}</h4>
+                </div>
+                {{/if}}
+                {{/each}}
+                {{else}}
+                <div class="order-id">
+                    <h2>No Past Orders</h2>
+                </div>
+                {{/if}}
+            </div>
+        </div>
+
+    </div>
+
+
+
+</body>
+
+
+</html>

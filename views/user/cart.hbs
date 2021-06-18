@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/user/cart.css">
+    <title>INFO30005Project: Customer Application</title>
+    <link rel="shortcut icon" type="image/jpg" href="/logo.png" />
+</head>
+
+<body>
+    {{> navbar}}
+
+    <h3 class="your-cart">Your Cart</h3>
+    {{#if items}}
+    <section>
+        <table align="center">
+            <tr class="item-header">
+                <th></th>
+                <th></th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+            </tr>
+            {{#each items}}
+            <tr>
+                <td class="itemimg">
+                    <img src="/{{this.item.image_url}}" alt="" height=" 150px" width="150px">
+                </td>
+                <td class="itemdesc">
+                    <ul style="list-style-type: none;">
+                        <li>
+                            <h1>{{this.item.name}}</h1>
+                        </li>
+                        <li>
+                            <p>{{this.item.description}}</p>
+                        </li>
+                        <li>
+                            <form action="/cart/remove/{{this.item._id}}" method="POST">
+                            <input type="submit" class="remove-btn" value="Remove"></form>
+                    </ul>
+                </td>
+                <td>
+                    <p>${{this.item.price}}</p>
+                </td>
+                <td>
+                    <div class = "edit-qty">
+                        <form action="/cart/reduce/{{this.item._id}}" method="POST">
+                            <input type="submit" class="qty-button" value="-">
+                        </form>
+                        {{this.qty}}
+                        <form action="/cart/add/{{this.item._id}}" method="POST">
+                            <input type="submit" class="qty-button" value="+">
+                        </form>
+                    </div>
+                </td>
+                <td>
+                    <p class="price">${{this.price}}</p>
+                </td>
+            </tr>
+            {{/each}}
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    <h4 class="totalprice">Total: </h4>
+                </td>
+                <td>
+                    <h3 class="totalprice">${{totalPrice}}</h3>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td colspan="2">
+                    {{#if user}}
+                    <a href="/checkout" class="checkout-btn" role="button">Checkout</a>
+                    {{else}}
+                    <button class="checkout-btn" onclick="displayError()">Checkout</button>
+                    <a href="/user/login">
+                        <div id="error"></div>
+                    </a>
+                    {{/if}} </td>
+            </tr>
+        </table>
+        {{else}}
+        <h2 class="empty-message">No Items in Cart</h2>
+        {{/if}}
+    </section>
+
+    {{>footer}}
+
+    <script>
+        function displayError() {
+            document.getElementById("error").innerHTML = "Sign in to order";
+        }
+    </script>
+
+</body>

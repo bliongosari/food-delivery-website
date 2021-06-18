@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INFO30005Project: Customer Application</title>
+    <link rel="stylesheet" href="/css/partials/navbar.css">
+
+
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="header">
+            <div class="left-sidebar" onClick={document.querySelector(".sidebar").classList.add("open")}>
+                <button class="btns">&#9776;</button>
+            </div>
+
+            <aside class="sidebar">
+                <div class="top-sidebar">
+                    <a href="#" class="close" onClick={document.querySelector(".sidebar").classList.remove("open")}></a>
+                </div>
+                <div class="sidebar-content">
+                    <a href="/">
+                        <h3 class="sidebarfont"> Home </h3>
+                    </a>
+                    {{#if user}}
+                    <a href="/user/{{user._id}}">
+                        <h3 class="sidebarfont"> My Profile </h3>
+                    </a>
+                    {{/if}}
+                    <a href="/menu">
+                        <h3 class="sidebarfont"> Menu </h3>
+                    </a>
+                    {{#if user}}
+                    <a href="/user/logout">
+                        <h3 class="sidebarfont"> Logout </h3>
+                    </a>
+                    {{else}}
+                    <a href="/user/login">
+                        <h3 class="sidebarfont"> Sign In </h3>
+                    </a>
+                    <a href="/user/sign-up">
+                        <h3 class="sidebarfont"> Sign Up </h3>
+                    </a>
+                    {{/if}}
+                    <a href="/vendor">
+                        <h3 class="sidebarfont"> Switch to Vendor App </h3>
+                    </a>
+                    <h3 class="copyrightfont"> &copy SNACKS IN A VAN AUSTRALIA </h3>
+                </div>
+            </aside>
+
+            <a href="/">
+                <img class="logo" src="/logo.png" alt="" />
+            </a>
+            <div class="buttons">
+                <div class="partner-up-btn">
+                    <a href="/partner-up">Partner Up</a>
+                    <img class="btn-icon" src="/check-mark-icon-png-5.png" alt="check">
+                </div>
+                {{#if user }}
+                <div class="login-btn">
+                    <a href="/user/{{user.id}}">Hi {{user.firstname}} {{user.lastname}}</a>
+                </div>
+                <div class="login-btn">
+                    <a href="/user/logout">Logout</a>
+                </div>
+                {{else}}
+                <div class="login-btn">
+                    <a href="/user/login">Sign Up or Sign In</a>
+                </div>
+                {{/if}}
+            </div>
+            <div class="cart-icon">
+                <a href="/cart"> <img src="/cart-icon.png" alt="cart"> </a>
+                <span class="badge">{{session.cart.totalQty}}</span>
+            </div>
+        </div>
+    </nav>
+</body>

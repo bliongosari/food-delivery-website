@@ -1,0 +1,380 @@
+@import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+:root {
+  --main-color: #24745c;
+}
+
+section {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.progressbar {
+  counter-reset: step;
+  font-family: "Alegreya Sans";
+  font-size: 25px;
+  font-weight: bold;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/alegreyasans/v14/5aUu9_-1phKLFgshYDvh6Vwt5fFPqEd2i0VBuxOCBA.woff2)
+    format("woff2");
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F,
+    U+FE2E-FE2F;
+}
+.progressbar li {
+  list-style-type: none;
+  float: left;
+  width: 33.33%;
+  position: relative;
+  text-align: center;
+  font-size: 80%;
+}
+
+.progressbar li:before {
+  content: counter(step);
+  counter-increment: step;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border: 1px solid#9C9B9B;
+  background-color: #9c9b9b;
+  display: block;
+  text-align: center;
+  margin: 0 auto 10px auto;
+  border-radius: 50%;
+}
+.progressbar li.active {
+  color: black;
+  font-size: 80%;
+}
+.progressbar li:after {
+  content: "";
+  position: absolute;
+  width: 92%;
+  height: 1px;
+  background-color: #9c9b9b;
+  top: 20px;
+  left: -46%;
+  z-index: -0.5;
+}
+
+.progressbar li:first-child:after {
+  content: none;
+}
+
+.progressbar li.active:before {
+  border-color: #24745c;
+  background-color: #24745c;
+  font-family: "Alegreya Sans";
+  font-size: 25px;
+  font-weight: bold;
+  color: white;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/alegreyasans/v14/5aUu9_-1phKLFgshYDvh6Vwt5fFPqEd2i0VBuxOCBA.woff2)
+    format("woff2");
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F,
+    U+FE2E-FE2F;
+}
+.progressbar li.active + li:before {
+  background-color: #9c9b9b;
+  color: white;
+}
+
+.progressbar li:before {
+  background-color: #9c9b9b;
+  color: white;
+}
+
+.menu-page {
+  display: flex;
+  flex-direction: column;
+}
+
+.pickup-container {
+  width: 90%;
+  display: inline-flexbox;
+  padding-top: 7%;
+  font-family: "Alegreya Sans";
+}
+
+.van-details {
+  width: 100%;
+  border: 2px solid lightgrey;
+}
+
+.location {
+  vertical-align: middle;
+  margin-left: 5px;
+  display: inline-block;
+}
+
+.ordersummary-container h1 {
+  text-align: left;
+  font-family: "Alegreya Sans";
+}
+
+.pickupdetails {
+  text-align: left;
+  font-family: "Alegreya Sans";
+  position: relative;
+  background: white;
+  border: 2px solid #d3d3d3;
+  width: 100%;
+  line-height: 0px;
+}
+
+.image-van {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 40px;
+  width: 200px;
+  height: auto;
+  padding-left: 2px;
+}
+
+.direction-btn {
+  color: blue;
+  vertical-align: middle;
+  text-decoration: underline;
+}
+
+.ordersummary-container {
+  width: 80%;
+  display: inline-block;
+}
+
+.itemsordered {
+  width: 100%;
+  font-family: "Alegreya Sans";
+  font-size: 20px;
+}
+
+.ordersummary-container table {
+  float: left;
+  padding: 0px 10px;
+  border: 2px solid lightgrey;
+  position: relative;
+  width: 350px;
+}
+
+.itemprice {
+  text-align: right;
+  margin-right: 10%;
+  font-family: "Alegreya Sans";
+  font-size: 20px;
+  line-height: 0px;
+}
+
+.subtotal {
+  font-size: 20px;
+  font-family: "Alegreya Sans";
+  font-weight: 600;
+  line-height: 0px;
+  color: black;
+}
+
+.itemimg {
+  display: flex;
+  margin-left: 3%;
+  margin-top: 1%;
+}
+
+.image-order {
+  margin-right: 10%;
+  width: 150px;
+  max-height: 100px;
+}
+
+.edit-btn {
+  background-color: var(--main-color);
+  border-radius: 4px;
+  text-align: center;
+  color: white;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-right: 10%;
+  font-size: 12px;
+  font-family: "Inter";
+}
+
+.edit-btn:hover {
+  background: #134033;
+}
+
+.apply-btn {
+  line-height: 22px;
+  background-color: var(--main-color);
+  border-radius: 4px;
+  padding: 10px;
+  text-align: center;
+  color: white;
+  font-family: "Poppins";
+  margin-left: 55%;
+  margin-top: 2%;
+}
+
+.apply-btn:hover {
+  background: #134033;
+}
+
+.next-btn {
+  height: 50%;
+  width: 10%;
+  line-height: 22px;
+  background-color: black;
+  border-radius: 4px;
+  padding: 10px;
+  text-align: center;
+  color: white;
+  font-family: "Poppins";
+  margin-top: 20px;
+  margin-left: 80%;
+  margin-bottom: 15px;
+}
+
+.next-btn1 {
+  height: 50%;
+  width: 10%;
+  line-height: 22px;
+  background-color: black;
+  border-radius: 4px;
+  padding: 10px;
+  text-align: center;
+  color: white;
+  font-family: "Poppins";
+  margin-top: 20px;
+  margin-left: 80%;
+  margin-bottom: 50px;
+}
+
+#error {
+  width: 10%;
+  line-height: 12px;
+  margin-bottom: 30px;
+  background-color: none;
+  border-radius: 4px;
+  text-align: center;
+  color: red;
+  font-family: "Poppins";
+  margin-left: 81%;
+  text-decoration: underline;
+}
+
+.next-btn:hover {
+  background: var(--main-color);
+  color: white;
+  font-weight: bold;
+}
+
+.checkout-btn {
+  background-color: var(--main-color);
+  color: white;
+  font-family: "Poppins";
+  border: 0px;
+  border-radius: 4px;
+  padding-top: 5px;
+  margin-left: 5px;
+  padding-bottom: 5px;
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+.checkout-btn:hover {
+  background-color: #134033;
+}
+
+.couponcode {
+  float: right;
+  text-align: center;
+  font-family: "Alegreya Sans";
+  font-size: 20px;
+}
+
+.search-text {
+  font-family: "Alegreya Sans";
+  width: 95%;
+  padding-left: 5px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.msg {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 1200px) {
+  .location {
+    margin-top: 0px;
+    margin-left: 0px;
+  }
+  .direction-btn {
+    margin-left: 40px;
+  }
+}
+@media screen and (max-width: 950px) {
+  .couponcode {
+    text-align: center;
+    font-family: "Alegreya Sans";
+    font-size: 20px;
+    float: left;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 20px;
+  }
+  h2 {
+    font-size: 20px;
+  }
+  .image-van {
+    margin-top: 20px;
+    width: 150px;
+  }
+  .search-text {
+    width: 100%;
+    margin-left: 5px;
+  }
+  .location {
+    margin-top: 0px;
+  }
+  .ordersummary-container table {
+    width: 320px;
+  }
+  .couponcode {
+    text-align: center;
+    font-family: "Alegreya Sans";
+    font-size: 20px;
+    float: left;
+  }
+
+  .codebox {
+    text-align: center;
+    margin-top: -10px;
+    margin-bottom: 5%;
+    width: 100%;
+  }
+
+  .apply-btn {
+    width: 70%;
+    margin-left: 15%;
+    font-size: 15px;
+    padding: 5px;
+  }
+
+  .next-btn {
+    width: 70%;
+  }
+  .location {
+    margin-left: -20px;
+  }
+  .direction-btn {
+    margin-left: 20px;
+  }
+  .image-van {
+    margin-left: 30px;
+  }
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INFO30005Project: Vendor Past Order Page</title>
+    <meta http-equiv="refresh" content="75">
+    <link rel="stylesheet" href="/css/vendor/van-past-order.css">
+    <link rel="shortcut icon" type="image/jpg" href="/logo.png" />
+</head>
+
+<body>
+    {{>navVendor}}
+
+    <div class="content-wrapper">
+        <h1>Past Orders</h1>
+    </div>
+
+    <div class="order-container">
+        {{#each orders}}
+        {{#if this.items}}
+        <table class="order">
+            <tr>
+                <td>
+                    <div class="order-id">
+                        <a href="#details{{this.id}}">
+                            <h2>Order #{{this.id}}</h2>
+                        </a>
+                        <h4 class="order-time">Ordered On: {{this.createdOn}}</h4>
+                    </div>
+                </td>
+                <td class="name">Name: <br>{{this.customer}}</td>
+                <td class="items">Order:<br>
+                    {{{getItems ../item_arr @index "order"}}}
+                </td>
+                <td class="buttons2">
+                    <h2>Status: {{this.status}}</h2>
+                </td>
+            </tr>
+        </table>
+        {{/if}}
+
+        <div id="details{{this.id}}" class="pop">
+            <div class="popup" id={{this.id}}>
+                <div class="info">
+                    <h3>Order #{{this.id}}</h3>
+                    <h4>Ordered On: {{this.createdOn}}</h4>
+                    <h4>Status: {{this.status}}</h4>
+                    <h4>Ordered By: {{this.customer}}</h4>
+                </div>
+                <div class="items">Orders: <br>
+                    <table class="item">
+                        {{{getItems ../item_arr @index "popup"}}}
+                    </table>
+                </div>
+
+                <div class="total-container">
+                    <div class="total">
+                        <p style="font-weight:bold">Subtotal</p>
+                        <p class="subtotal">${{this.items.[0].totalPrice}}</p>
+                    </div>
+
+                    <div class="totaltax">
+                        <p>Tax</p>
+                        <p id="tax" class="subtotal">${{getTotal this.items.[0].totalPrice "tax"}}</p>
+                    </div>
+                    <div class="paidby">
+                        <p>Paid:</p>
+                        <p id="total">${{getTotal this.items.[0].totalPrice "total"}}</p>
+                    </div>
+                </div>
+                <a class="closes" href="#">&times;</a>
+            </div>
+        </div>
+    {{/each}}
+    </div>
+</body>
+
+
+</html>

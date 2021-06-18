@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INFO30005Project: Customer Application</title>
+    <link rel="stylesheet" href="/css/user/order.css">
+    <meta http-equiv="refresh" content="60">
+    <link rel="shortcut icon" type="image/jpg" href="/logo.png" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://kit.fontawesome.com/bcdf1da655.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    {{>navbar}}
+    <div class="main-content-wrapper">
+        <div class="upperbody-1">
+            <ul class="progressbar">
+                <li>Review</li>
+                <li> Pay</li>
+                <li class="active"> Complete </li>
+            </ul>
+        </div>
+    </div>
+
+    <section class="content1">
+        <div class="receipt">
+            <div class="orderinfo">
+                <h3>Order Number: {{order.id}}</h3>
+                <div id="currentTime">
+                    <p>
+                        Time elapsed: {{time_elapsed}}
+                    </p>
+                    {{#if order.discounted}}
+                    <p>Discounted {{discount}}</p>
+                    {{/if}}
+                </div>
+            </div>
+            <div class="ordered_on">
+                <h3>Ordered on: {{date}}</h3>
+                <h3>Status: {{order.status}}</h3>
+            </div>
+            <div class="thankyou">
+                {{#if cancelled}}
+                <h2>Your order is cancelled.</h2>
+                {{else}}
+                <h2>Thankyou for ordering!</h2>
+                {{/if}}
+
+                {{#if editable}}
+                <div class="btns1">
+                    <div class="change-order-btn">
+                        <a href="/order/{{order.id}}/edit">
+                            <h1>Change Order</h1>
+                        </a>
+                    </div>
+                    <div class="change-order-btn">
+                        <a href="/user/{{order.id}}/cancel">
+                            <h1>Cancel Order</h1>
+                        </a>
+                    </div>
+                </div>
+                {{else}}
+                <div class="btns1">
+                    <button class="inactive-btn"> Unable to change order</button>
+                    <button class="inactive-btn">Unable to cancel order</button>
+                </div>
+                {{/if}}
+
+                <hr class="hr1">
+                {{#each items}}
+                <div class="itemsordered">
+                    <div class="qty">
+                        {{this.qty}}
+                    </div>
+                    <p class="name">x {{ this.item.name }}</p>
+                    <p class="price">${{this.item.price}}</p>
+                </div>
+                {{/each}}
+
+                <hr class="hr2">
+                {{#if order.discounted}}
+                <div class="total">
+                    <p style="font-weight:bold">Discount</p>
+                    <p class="subtotal">{{discount}}</p>
+                </div>
+                {{/if}}
+                <div class="total">
+                    <p style="font-weight:bold">Subtotal</p>
+                    <p class="subtotal">${{totalPrice}}</p>
+                </div>
+
+                <div class="totaltax">
+                    <p>Tax</p>
+                    <p id="tax" class="subtotal">${{getTotal totalPrice "tax"}}</p>
+                </div>
+
+                <hr class="hr2">
+
+                <div class="paidby">
+                    <p>Paid:</p>
+                    <p id="total">${{getTotal totalPrice "total"}}</p>
+                </div>
+
+
+                <div class="rate-btn">
+                    {{#if rating}}
+                    <span>Already Rated!</span>
+                    {{else}}
+                    <a href="#rate">Rate us</a>
+                    {{/if}}
+                </div>
+
+                <div id="rate" class="pop">
+                    <div class="popup" id="rate-popup">
+                        <h3>Rate the Van!</h3>
+                        <a class="closes" href="#">&times;</a>
+                        <div class="content">
+                            <form action="/order/rate/{{order._id}}" method="post" onSubmit="return validateForm();">
+                                <div class="rate">
+                                    {{!-- modified from https://codepen.io/hesguru/pen/BaybqXv --}}
+                                    <input type="radio" id="star5" name="rating" value="5" />
+                                    <label for="star5" title="text"></label>
+                                    <input type="radio" id="star4" name="rating" value="4" />
+                                    <label for="star4" title="text"></label>
+                                    <input type="radio" id="star3" name="rating" value="3" />
+                                    <label for="star3" title="text"></label>
+                                    <input type="radio" id="star2" name="rating" value="2" />
+                                    <label for="star2" title="text"></label>
+                                    <input type="radio" id="star1" name="rating" value="1" />
+                                    <label for="star1" title="text"></label>
+                                </div>
+
+                                <input class="comment" type="text" id="comment" name="comment"
+                                    placeholder="Enter your comment here (optional)" pattern="[^;<>]+"
+                                    oninvalid="this.setCustomValidity('Characters (;,<,>) not allowed')"
+                                    oninput=" this.setCustomValidity('')">
+                                <div class="sbmt">
+                                    <button type="submit" class="add-text">Rate</button>
+                                </div>
+                            </form>
+                        </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+    </section>
+
+    {{>footer}}
+
+    <script>
+        function validateForm() {
+            var validate = false;
+            $('input[type = "radio"]').each(function () {
+                if ($(this).prop("checked") == true) {
+                    console.log("yes");
+                    validate = true;
+                }
+
+            });
+            if (validate == false) {
+                alert("Please enter a rating")
+            }
+        }
+    </script>
+</body>
+
+
+
+</html>

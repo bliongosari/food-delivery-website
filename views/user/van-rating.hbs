@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INFO30005Project: User rating page</title>
+    <meta http-equiv="refresh" content="75">
+    <link rel="stylesheet" href="/css/user/rating.css">
+    <link rel="shortcut icon" type="image/jpg" href="/logo.png" />
+</head>
+
+
+<body>
+    {{>navbar}}
+    <div class="content-wrapper">
+        <h1>Ratings
+        </h1>
+    </div>
+
+    <div class="order-container">
+        {{#each ratings}}
+        <table class="order">
+            <tr>
+                <td>
+                    <div class="order-id">
+                        <h2>Order #{{this.order_id}}</h2>
+                    </div>
+                </td>
+                <td colspan="2">
+                    <div class="cust-rating">
+                        <span>{{this.rating}}/5</span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h4 class="order-time">Ordered On: {{this.createdOn}}</h4>
+                </td>
+                <td class="name">Name: <br>{{this.customer}}</td>
+
+                {{#if this.comment}}
+                <td class="items"> Comments: {{this.comment}}</td>
+                {{else}}
+                <td class="items">Comments: None</td>
+                {{/if}}
+            </tr>
+        </table>
+        {{/each}}
+    </div>
+
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            getRatings();
+        });
+        const rating = {{ van.rating }}
+        const rounded = (rating | 0);
+        var decimal = rating - rounded, $rating = $(".rating");
+        function getRatings() {
+            const star = (rating / 5) * 100;
+            for (var j = 0; j < rounded; j++) {
+                $rating.append('<i class="fa fa-star" style="color: #eb6e00; font-size: 20px;"></i>');
+            }
+            if (decimal) {
+                $rating.append('<i class="fa fa-star-half" style="color: #eb6e00; font-size: 20px;"></i>');
+            }
+            $rating.append('<span>{{van.rating}}</span>')
+        }
+    </script>
+
+    {{>footer}}
+</body>
+
+
+</html>

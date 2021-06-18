@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INFO30005Project: Customer Application</title>
+    <link rel="stylesheet" href="/css/user/payment.css">
+    <link rel="shortcut icon" type="image/jpg" href="/logo.png" />
+    <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
+</head>
+
+<body>
+    {{>navbar}}
+
+    <div class="main-content-wrapper">
+        <div class="upperbody-1">
+            <ul class="progressbar">
+                <li>Review</li>
+                <li class="active"> Pay</li>
+                <li> Complete </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="order">
+        <h1>Order Summary</h1>
+
+        <div class="van-info">
+            <h3> Pickup Location </h3>
+            <h5> {{van.van_name}}</h5>
+            <h5> {{van.address}}</h5>
+            <br>
+            <h3> Order </h3>
+            {{#each items}}
+            <div class="item">
+                <h3 class="left">{{this.item.name}} x {{this.qty}}</h3>
+                <h3 class="right">${{this.item.price}}</h3>
+            </div>
+            {{/each}}
+            <div class="totals">
+                <h3 class="left"> Subtotal </h3>
+                <h3 class="right"> ${{totalPrice}} </h3>
+                <h3 class="left"> Tax </h3>
+                <h3 class="right" id="tax"> ${{getTotal totalPrice "tax"}}</h3>
+                <h3 class="left"> Total </h3>
+                <h3 class="right" id="total">${{getTotal totalPrice "total"}}</h3>
+            </div>
+            <a href="/checkout">
+                <br>
+                <h5> Edit Details </h5>
+            </a>
+        </div>
+
+    </div>
+    <div class="payment-method-container">
+        <div class="payment-method-font">
+            Payment Method
+        </div>
+
+        <div class="payment-method-container-bottom">
+            <div>
+                <img src="/visa.png" alt="" style="width: 45px;px;height: 15px;px;padding-left: 5px">
+                <span class="iconify" data-inline="false" data-icon="logos:mastercard" style="font-size: 30px;"></span>
+                <span class="iconify" data-inline="false" data-icon="logos:paypal" style="font-size: 30px;"></span>
+            </div>
+        </div>
+        <h4 class="card-type-font">Card Type</h4>
+
+        <table>
+            <tr>
+                <td>
+                    <div class="card-info-container">
+                        <table>
+                            <tr>
+                                <td>
+                                    <div class="card-type-content">
+                                        <input type="radio" checked="checked" name="radio"><br>
+                                        <label class="card-type-text">Credit Card</label>
+                                    </div>
+
+                                </td>
+                                <td>
+                                    <div class="card-type-content">
+                                        <input type="radio" checked="checked" name="radio"><br>
+                                        <label class="card-type-text">Paypal</label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <input type="text" placeholder="ENTER CARD NUMBER" class="card-data">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <input type="text" placeholder="CARD HOLDER NAME" class="card-data">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="text" placeholder="EXPIRY DATE" class="short-info">
+                                </td>
+                                <td>
+                                    <input type="text" placeholder="CVV" class="short-info">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <div class="save-card">
+                                        <label>
+                                            <input type="checkbox"> Save my card for future purchase
+                                        </label>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+                <td>
+                    <div class="secure-checkout-image">
+                        <span class="iconify" data-inline="false" data-icon="cib:f-secure"
+                            style="font-size: 100px;"></span>
+                        <br>SECURE <br>
+                        CHECKOUT
+                    </div>
+                    <form method="post" action="/order/create">
+                        <input type="hidden" id="orderedBy" name="orderedBy" value={{user.id}}>
+                        <input type="hidden" id="items" name="items" value={{items}}>
+                        <input type="hidden" id="orderedTo" name="orderedTo" value={{van._id}}>
+                        <input type="submit" value="Pay Now" class="submit-button">
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    {{>footer}}
+</body>
+</html>
