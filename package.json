@@ -4,7 +4,6 @@
   "description": "Info30005 project",
   "main": "app.js",
   "scripts": {
-    "test": "jest --forceExit",
     "start": "nodemon app.js"
   },
   "repository": {
